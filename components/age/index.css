@@ -1,0 +1,106 @@
+@import "../base";
+
+/* @Age */
+.Age {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+  border-top: var(--Form-border-width) solid rgb(var(--color-red));
+}
+
+@media (min-width: 1000px) {
+  .Age {
+    border: 0;
+  }
+}
+
+@media (min-width: 1000px) {
+  .Age {
+    flex-direction: row;
+  }
+}
+
+.Age-list {
+  flex: 1 0 33.333%;
+  display: flex;
+  padding: 0 50vw;
+  white-space: nowrap;
+  overflow: scroll;
+}
+
+.Age-list:not(:last-child) {
+  border-bottom: var(--Form-border-width) solid rgb(var(--color-red));
+}
+
+@media (min-width: 1000px) {
+  .Age-list {
+    flex-direction: column;
+    padding: 50vh 0;
+  }
+
+  .Age-list:not(:last-child) {
+    border-bottom: 0;
+    border-right: var(--Form-border-width) solid rgb(var(--color-red));
+  }
+}
+
+.Age-option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--Form-space-md);
+  margin: 0 1rem;
+  position: relative;
+}
+
+.Age-option::after {
+  content: "";
+  width: var(--Form-border-width);
+  height: 5%;
+  position: absolute;
+  left: calc(50% - (var(--Form-border-width) / 2));
+  bottom: 0;
+  background-color: currentColor;
+}
+
+@media (min-width: 1000px) {
+  .Age-option::after {
+    content: none;
+  }
+
+  .Age-option {
+    margin: 0;
+    padding: 3.5rem 0;
+  }
+
+  .Age-option--month {
+    padding-bottom: 100%;
+  }
+
+  .Age-option--month  .Age-label {
+    transform-origin: center;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
+}
+
+.Age-toggle {
+  width: 0;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+}
+
+.Age-label {
+  position: relative;
+  color: rgba(var(--color-red), 0.2);
+}
+
+.Age-toggle:checked + .Age-label {
+  color: rgb(var(--color-red));
+}

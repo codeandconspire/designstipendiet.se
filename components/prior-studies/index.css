@@ -1,0 +1,84 @@
+@import "../base";
+
+/* @PriorStudies */
+.PriorStudies {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  user-select: none;
+  -webkit-touch-callout: none;
+  border-top: var(--Form-border-width) solid rgb(var(--color-red));
+}
+
+@media (min-width: 1000px) {
+  .PriorStudies {
+    border: 0;
+  }
+}
+
+.PriorStudies-option {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  min-height: var(--Form-space-md);
+  padding: var(--Form-padding);
+  position: relative;
+}
+
+.PriorStudies-indicator {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.PriorStudies-toggle {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  outline: none;
+}
+
+.PriorStudies-toggle:checked + .PriorStudies-indicator {
+  background: rgb(var(--color-yellow));
+}
+
+.PriorStudies-label {
+  line-height: normal;
+}
+
+.PriorStudies-toggle:checked ~ .PriorStudies-label {
+  color: rgb(var(--color-red));
+}
+
+.PriorStudies-toggle ~ .PriorStudies-label::after {
+  content: "";
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: currentColor;
+}
+
+.PriorStudies-text {
+  width: 100%;
+  flex: 1 1 auto;
+  padding: 0 0.5rem;
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  color: currentColor;
+  -webkit-appearance: none;
+}
+
+.PriorStudies-text::placeholder {
+  color: currentColor;
+}

@@ -1,0 +1,651 @@
+@import "../../components/base";
+
+/* @define Form */
+:root {
+  --Form-space-sm: 2.2rem;
+  --Form-space-md: 3rem;
+  --Form-space-lg: 4rem;
+  --Form-padding: 0.3rem;
+
+  --Form-font-size-small: 1rem;
+  --Form-font-size-interface: 1.5rem;
+  --Form-font-size-title: 2rem;
+  --Form-font-size-text: 1.7rem;
+
+  --Form-border-width: 3px;
+
+  --Form-animation-duration: 350ms;
+  --Form-animation-easing: cubic-bezier(0.42, 0.34, 0.18, 0.99);
+}
+
+@media (min-height: 600px) {
+  :root {
+    --Form-space-md: 4rem;
+    --Form-space-lg: 6rem;
+    --Form-font-size-title: 2.6rem;
+  }
+}
+
+@media (min-height: 500px) and (min-width: 1000px) {
+  :root {
+    --Form-space-md: 4rem;
+    --Form-space-lg: 7rem;
+
+    --Form-font-size-small: 1.5rem;
+    --Form-font-size-interface: 1.5rem;
+    --Form-font-size-text: 2rem;
+    --Form-font-size-title: 4rem;
+  }
+}
+
+@media (min-height: 800px) and (min-width: 1200px) {
+  :root {
+    --Form-font-size-text: 2.5rem;
+    --Form-font-size-title: 4.5rem;
+  }
+}
+
+/**
+ * General form layout.
+ * Handling only dimensions, positioning, margins and scrolling.
+ */
+
+.Form {
+  width: 100%;
+  height: 100%;
+  -webkit-touch-callout: none;
+}
+
+.Form-main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: calc(100% - var(--Form-space-lg) - var(--Form-space-sm));
+  position: relative;
+  top: var(--Form-space-sm);
+}
+
+.Form-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.Form.is-intransition .Form-container {
+  overflow: hidden;
+}
+
+.Form-footer,
+.Form-nav {
+  width: 100%;
+  height: var(--Form-space-lg);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  user-select: none;
+}
+
+.Form-footer {
+  display: none;
+}
+
+.Form-tools {
+  flex: 1 1 0%;
+  display: flex;
+  position: relative;
+}
+
+.Form-answer {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.Form-answer--next {
+  display: none;
+  width: 100%;
+  position: absolute;
+  left: calc(100% * var(--Form-direction));
+  top: 0;
+  box-shadow: 0 0 0 var(--Form-border-width) red;
+}
+
+.Form.is-intransition .Form-answer--next {
+  display: flex;
+}
+
+.Form.is-intransition .Form-tools {
+  z-index: -1;
+  overflow: visible;
+  animation: 350ms forwards cubic-bezier(0.42, 0.34, 0.18, 0.99);
+}
+
+.Form.Form--backward .Form-tools {
+  animation-name: Form-transition-backward;
+}
+
+@keyframes Form-transition-backward {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.Form.Form--forward .Form-tools {
+  animation-name: Form-transition-forward;
+}
+
+@keyframes Form-transition-forward {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media (min-width: 1000px) {
+  .Form-nav,
+  .Form-footer {
+    width: 50%;
+  }
+
+  .Form-footer:hover:not(:empty),
+  .Form-footer:focus-visible:not(:empty),
+  .Form-footer:active:not(:empty) {
+    background-color: rgb(var(--color-red));
+    color: rgb(var(--color-yellow));
+    border-color: rgb(var(--color-red));
+  }
+
+  .Form-footer:hover:not(:empty)::after,
+  .Form-footer:focus-visible:not(:empty)::after,
+  .Form-footer:active:not(:empty)::after {
+    background-image: url("./prev-white.svg") !important;
+  }
+
+  :root .Form-action--next:hover:not(:disabled):not(.is-disabled),
+  :root .Form-action--next:focus-visible:not(:disabled):not(.is-disabled),
+  :root .Form-action--next:active:not(:disabled):not(.is-disabled) {
+    background-image: none;
+    color: rgb(var(--color-yellow));
+  }
+
+  .Form-footer {
+    display: block;
+  }
+
+  .Form-footer:disabled,
+  .Form-footer:disabled:hover,
+  .Form-footer:disabled:active {
+    background: transparent;
+    color: transparent;
+  }
+
+  .Form-main {
+    height: 100%;
+    padding: 0;
+    top: 0;
+    flex-direction: row;
+  }
+
+  .Form-container {
+    height: 100%;
+    padding: 0;
+    top: 0;
+    flex-direction: row;
+    overflow: hidden;
+    -webkit-overflow-scrolling: auto;
+  }
+
+  .Form-question {
+    width: 50%;
+    height: calc(100% - var(--Form-space-sm) - var(--Form-space-lg));
+    position: relative;
+    top: var(--Form-space-sm);
+    border-right: var(--Form-border-width) solid rgb(var(--color-red));
+    line-height: 1.1;
+  }
+
+  .Form-tools {
+    height: 100%;
+    width: calc(50% - var(--Form-space-lg));
+    padding-right: var(--Form-space-lg);
+    border: 0;
+  }
+
+  .Form-answer--next {
+    padding-right: var(--Form-space-lg);
+  }
+
+  .Form-question,
+  .Form-tools {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Root styles
+ */
+
+.Form {
+  font-size: var(--Form-font-size-interface);
+}
+
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Status bar
+ */
+
+.Form-statusbar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--Form-space-sm);
+  padding: 0 var(--Form-padding);
+  border-bottom: var(--Form-border-width) solid;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  font-size: 1.5rem;
+  user-select: none;
+  background: #fff;
+  text-transform: uppercase;
+}
+
+@media (min-width: 1000px) and (min-height: 800px) {
+  .Form-statusbar {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .Form-statusbar{
+    width: 50%;
+    border-right: var(--Form-border-width) solid;
+  }
+}
+
+.Form-cancel {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 50%;
+  height: 100%;
+  padding: 0 var(--Form-padding);
+  border-left: var(--Form-border-width) solid rgb(var(--color-red));
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+}
+
+.Form-cancel:hover,
+.Form-cancel:focus-visible,
+.Form-cancel:active {
+  background: rgb(var(--color-red));
+  color: rgb(var(--color-yellow));
+}
+
+@media (min-width: 1000px) {
+  .Form-cancel {
+    width: auto;
+    border: 0;
+    padding-left: calc(var(--Form-padding) + var(--Form-border-width));
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Footer
+ */
+
+@media (min-width: 1000px) {
+  .Form-footer {
+    display: flex;
+    align-items: center;
+    padding: 0 var(--Form-padding) 0 var(--Form-space-lg);
+    height: var(--Form-space-lg);
+    border-top: var(--Form-border-width) solid rgb(var(--color-red));
+    border-right: var(--Form-border-width) solid rgb(var(--color-red));
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    background: #fff;
+  }
+
+  .Form-footer:not(:empty):not(:disabled)::after {
+    content: "";
+    width: var(--Form-space-lg);
+    height: var(--Form-space-lg);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-image: url("./prev.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: var(--Form-space-md);
+  }
+}
+
+@media (min-width: 1000px) and (min-height: 800px) {
+  .Form-footer {
+    font-size: 2rem;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Nav with actions
+ */
+
+.Form-nav {
+  display: flex;
+  border-top: var(--Form-border-width) solid;
+  background: #fff;
+  text-transform: uppercase;
+}
+
+.Form-nav--placeholder {
+  display: none;
+}
+
+.Form-action {
+  flex: 1 1 50%;
+  height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  font: inherit;
+  font-size: 1.5rem;
+}
+
+.Form-action + .Form-action {
+  border-left: var(--Form-border-width) solid;
+}
+
+.Form-action--prev {
+  background: url("./prev.svg") no-repeat center center;
+  background-size: var(--Form-space-md);
+}
+
+.Form-action:not(.Form-action--submit).is-disabled {
+  background-image: url("./disabled.svg");
+  background-size: 101% 100%;
+  pointer-events: none;
+}
+
+.Form-action.is-disabled + .Form-action.is-disabled {
+  background-image: none;
+  pointer-events: none;
+}
+
+:root:not([scripting-enabled]) .Form-action--next,
+:root[scripting-enabled] .Form-action--next:not(:disabled) {
+  background-image: url("./next.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: var(--Form-space-md);
+}
+
+:root:not([scripting-enabled]) .Form-action--submit,
+:root[scripting-enabled] .Form-action--submit {
+  background-color: rgb(var(--color-red));
+  color: rgb(var(--color-yellow));
+}
+
+:root .Form-action--prev:hover:not(:disabled):not(.is-disabled),
+:root .Form-action--prev:focus-visible:not(:disabled):not(.is-disabled),
+:root .Form-action--prev:active:not(:disabled):not(.is-disabled) {
+  background-color: rgb(var(--color-red));
+  background-image: url("./prev-white.svg");
+}
+
+:root .Form-action--next:hover:not(:disabled):not(.is-disabled),
+:root .Form-action--next:focus-visible:not(:disabled):not(.is-disabled),
+:root .Form-action--next:active:not(:disabled):not(.is-disabled) {
+  background-color: rgb(var(--color-red));
+  background-image: url("./next-white.svg");
+}
+
+:root[scripting-enabled] .Form-action--submit:disabled::before {
+  content: "";
+  display: inline-block;
+  width: var(--Form-space-md);
+  height: var(--Form-space-md);
+  border: var(--Form-border-width) solid;
+  border-color: currentColor transparent transparent transparent;
+  position: absolute;
+  left: 1em;
+  bottom: 0.65em;
+  background-image: none;
+  border-radius: 100%;
+  animation: Form-action--loading 1500ms infinite linear;
+}
+
+@keyframes Form-action--loading {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.Form-button {
+  display: none;
+}
+
+.Form--summary .Form-button {
+  display: block;
+}
+
+@media (min-width: 1000px) {
+  .Form-nav {
+    top: 0;
+    right: 0;
+    bottom: auto;
+    left: auto;
+    width: var(--Form-space-lg);
+    height: 100%;
+    border: 0;
+    border-left: var(--Form-border-width) solid;
+  }
+
+  .Form-nav--placeholder {
+    display: flex;
+    position: absolute;
+  }
+
+  .Form.is-intransition .Form-nav:not(.Form-nav--placeholder) {
+    z-index: -1;
+    animation: Form-nav--transition 350ms forwards cubic-bezier(0.42, 0.34, 0.18, 0.99);
+  }
+
+  @keyframes Form-nav--transition {
+    to {
+      transform: translateX(calc(-50vw * var(--Form-direction)));
+    }
+  }
+
+  .Form-action {
+    position: relative;
+    text-transform: uppercase;
+  }
+
+  .Form-action + .Form-action {
+    border: 0;
+  }
+
+  .Form-action:not(.Form-action--submit).is-disabled {
+    background-image: none;
+    color: transparent;
+  }
+
+  .Form-button {
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: calc(var(--Form-space-lg) - 1em);
+    font-size: 1.5rem;
+    transform-origin: 0 0;
+    transform: translateX(calc(100% - (var(--Form-space-lg) / 2) - 0.5em)) rotate(-90deg);
+  }
+
+  .Form-action--submit {
+    flex: 1 0 100%;
+    cursor: pointer;
+  }
+
+  .Form-action--prev {
+    display: none;
+  }
+
+  .Form-action--prev,
+  .Form-action--prev.is-disabled,
+  :root:not([scripting-enabled]) .Form-action--next,
+  :root[scripting-enabled] .Form-action--next:not(:disabled) {
+    background: none;
+  }
+
+  :root:not([scripting-enabled]) .Form-action--next::after,
+  :root[scripting-enabled] .Form-action--next:not(:disabled)::after,
+  :root[scripting-enabled] .Form-action--next:not(:disabled)::after,
+  :root:not([scripting-enabled]) .Form-action--submit::after,
+  :root[scripting-enabled] .Form-action--submit:not(:disabled)::after {
+    content: "";
+    width: var(--Form-space-lg);
+    height: var(--Form-space-lg);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-image: url("./next.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: var(--Form-space-md);
+  }
+
+  :root[scripting-enabled] .Form-action--submit:disabled::before {
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+  }
+
+  :root:not([scripting-enabled]) .Form-action--submit::after,
+  :root[scripting-enabled] .Form-action--submit:not(:disabled)::after,
+  :root .Form-action--next:hover:not(:disabled):not(.is-disabled)::after,
+  :root .Form-action--next:focus-visible:not(:disabled):not(.is-disabled)::after,
+  :root .Form-action--next:active:not(:disabled):not(.is-disabled)::after {
+    background-image: url("./next-white.svg");
+  }
+
+  :root .Form-action--next:hover:not(:disabled):not(.is-disabled),
+  :root .Form-action--next:focus-visible:not(:disabled):not(.is-disabled),
+  :root .Form-action--next:active:not(:disabled):not(.is-disabled) {
+    background-image: none;
+    color: rgb(var(--color-yellow));
+  }
+}
+
+@media (min-width: 1000px) and (min-height: 800px) {
+  .Form-button {
+    font-size: 2rem;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Main
+ */
+
+.Form-main {
+  justify-content: space-between;
+}
+
+.Form-question {
+  padding: var(--Form-padding) var(--Form-padding) var(--Form-space-md);
+  font-size: var(--Form-font-size-title);
+  background-color: #fff;
+  color: rgb(var(--color-blue));
+}
+
+.Form-tools {
+  font-size: var(--Form-font-size-text);
+}
+
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Summary
+ */
+
+.Form-summary {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  border-top: var(--Form-border-width) solid rgb(var(--color-red));
+}
+
+@media (min-width: 1000px) {
+  .Form-summary {
+    border: 0;
+  }
+}
+
+.Form-dl {
+  margin: 0;
+  width: 100%;
+  padding-bottom: var(--Form-space-sm);
+  border: solid;
+  border-width: 0 0 var(--Form-border-width) 0;
+}
+
+.Form-title {
+  padding: 0 var(--Form-padding);
+  margin-top: var(--Form-space-sm);
+  color: rgb(var(--color-blue));
+}
+
+.Form-value {
+  padding: 0 var(--Form-padding);
+  margin: 0;
+}
+
+.Form-restart {
+  padding: var(--Form-space-sm) var(--Form-padding);
+}
+
+.Form-link {
+  border-bottom: var(--Form-border-width) solid;
+}
+
+@media (min-width: 1000px) {
+  .Form-dl {
+    border-top: 0;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Error
+ */
+
+ .Form-error {
+  padding: 1rem;
+  margin: 1rem 0.5rem;
+  color: rgb(var(--color-yellow));
+  font-size: 14px;
+  background-color: rgb(var(--color-red));
+}

@@ -1,0 +1,66 @@
+@import "../base";
+
+/* @define Countdown */
+.Countdown {
+  position: relative;
+  font-size: var(--Form-font-size-interface);
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  user-select: none;
+  padding-top: 2px;
+}
+
+.Countdown-counter {
+  animation: Countdown-counter--rolling 15s forwards linear;
+}
+
+@keyframes Countdown-counter--rolling {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.Countdown-counter {
+  display: inline-flex;
+  align-items: center;
+  padding-left: 2.3em;
+}
+
+.Countdown-clock {
+  flex: 0 0 auto;
+  display: inline-block;
+  width: 1.4rem;
+  height: 1.4rem;
+  border: 2px solid rgb(var(--color-red));
+  position: absolute;
+  top: calc(50% - 2px);
+  left: 0.7em;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+
+.Countdown-hand {
+  height: 2px;
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 1px);
+  background-color: rgb(var(--color-red));
+  transform-origin: 0 50%;
+}
+
+.Countdown-hand--minute {
+  width: 42%;
+  transform: rotate(calc((360deg * (var(--Countdown-minutes) / 60)) - 90deg));
+}
+
+.Countdown-hand--hour {
+  width: 27%;
+  transform: rotate(calc((360deg * (var(--Countdown-hours) / 12)) - 90deg));
+}
+
+@media (min-height: 800px) and (min-width: 1000px) {
+.Countdown {
+    font-size: 2rem;
+  }
+}

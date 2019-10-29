@@ -1,0 +1,68 @@
+{
+  "name": "designstipendiet.se",
+  "version": "1.0.0",
+  "description": "For Robert Weil Family Foundation & Beckmans College of Design",
+  "main": "index.js",
+  "scripts": {
+    "build": "jalla build index.js --sw sw.js",
+    "start": "node server.js",
+    "deploy": "npx now -T codeandconspire && npx now alias -T codeandconspire",
+    "test": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeandconspire/designstipendiet.se.git"
+  },
+  "documentify": {
+    "transform": [
+      [
+        "./lib/document.js",
+        {
+          "order": "end"
+        }
+      ]
+    ]
+  },
+  "now": {
+    "alias": "www.designstipendiet.se",
+    "env": {
+      "NODE_ENV": "production",
+      "CLOUDFLARE_ZONE": "@cloudflare-designstipendiet-zone",
+      "CLOUDFLARE_EMAIL": "@cloudflare-designstipendiet-email",
+      "CLOUDFLARE_KEY": "@cloudflare-designstipendiet-key",
+      "MAILGUN_KEY": "@mailgun-designstipendiet-key",
+      "POLYFILL_FEATURES": "default-3.3,Array.prototype.find,Array.prototype.includes"
+    }
+  },
+  "author": "code and conspire",
+  "license": "CC-BY-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/codeandconspire/designstipendiet.se/issues"
+  },
+  "homepage": "https://github.com/codeandconspire/designstipendiet.se#readme",
+  "devDependencies": {
+    "choo-devtools": "^2.5.1",
+    "standard": "^10.0.3"
+  },
+  "dependencies": {
+    "cccpurge": "^2.0.0",
+    "choo": "^6.13.3",
+    "choo-meta": "^1.0.4",
+    "choo-service-worker": "^2.4.0",
+    "date-fns": "^1.30.1",
+    "dotenv": "^6.2.0",
+    "focus-visible": "^4.1.5",
+    "got": "^9.6.0",
+    "jalla": "^0.12.0-7",
+    "koa-body": "^4.1.0",
+    "koa-compose": "^4.1.0",
+    "koa-route": "^3.2.0",
+    "mailgun-js": "^0.22.0",
+    "nanoraf": "^3.1.0",
+    "normalize.css": "^8.0.1",
+    "postcss-custom-properties": "^8.0.9",
+    "postcss-focus-visible": "^4.0.0",
+    "postcss-url": "^8.0.0",
+    "scroll-into-view": "^1.9.5"
+  }
+}

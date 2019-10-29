@@ -1,0 +1,73 @@
+@import "../base";
+
+/* @WhyYou */
+.WhyYou {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  user-select: none;
+  -webkit-touch-callout: none;
+  border-top: var(--Form-border-width) solid rgb(var(--color-red));
+}
+
+@media (min-width: 1000px) {
+  .WhyYou {
+    border: 0;
+  }
+}
+
+.WhyYou-option {
+  display: flex;
+  position: relative;
+  padding-top: 2rem;
+  height: 100%;
+}
+
+@media (min-width: 1000px) {
+  .WhyYou-option {
+    height: 65%;
+    border: solid;
+    border-width: var(--Form-border-width) 0;
+  }
+}
+
+.WhyYou-text {
+  width: 100%;
+  flex: 1 1 auto;
+  padding: var(--Form-padding);
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  color: currentColor;
+  resize: none;
+  -webkit-appearance: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.WhyYou-text:focus {
+  outline: 0;
+}
+
+.WhyYou-text::placeholder {
+  color: currentColor;
+}
+
+.WhyYou-limit {
+  position: absolute;
+  right: var(--Form-padding);
+  top: var(--Form-padding);
+  font-size: var(--Form-font-size-interface);
+}
+
+.WhyYou-placeholder {
+  display: none;
+  position: absolute;
+  left: 0.3rem;
+  top: 2.25rem;
+}
+
+.WhyYou-text:empty + .WhyYou-placeholder {
+  display: block;
+}

@@ -1,0 +1,66 @@
+@import "../base";
+
+/* @AboutYou */
+.AboutYou {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.AboutYou-option {
+  flex: 1 1 auto;
+  display: block;
+  padding: var(--Form-padding);
+  border-top: var(--Form-border-width) solid rgb(var(--color-red));
+  font-size: var(--Form-font-size-title);
+}
+
+@media (min-width: 1000px) {
+  .AboutYou-option {
+    flex: 0 1 auto;
+  }
+
+  .AboutYou-option:last-child {
+    border-bottom: var(--Form-border-width) solid rgb(var(--color-red));
+  }
+}
+
+.AboutYou-label {
+  display: block;
+  line-height: normal;
+  font-size: var(--Form-font-size-interface);
+}
+
+.AboutYou-text {
+  width: 100%;
+  padding: 0.2em 0 0.3em;
+  border: 0;
+  margin-bottom: calc(var(--Form-padding) * -1);
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  color: currentColor;
+  -webkit-appearance: none;
+}
+
+.AboutYou-text::placeholder {
+  color: currentColor;
+}
+
+@media (min-height: 500px) and (min-width: 1000px) {
+  .AboutYou-option {
+    font-size: 2.6rem;
+    flex: 0 0 auto;
+  }
+
+  .AboutYou-text {
+    padding: 0.5em 0 0.7em;
+  }
+
+  .AboutYou-option:last-child {
+    border-bottom: var(--Form-border-width) solid rgb(var(--color-red));
+  }
+}

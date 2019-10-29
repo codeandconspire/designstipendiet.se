@@ -1,0 +1,167 @@
+@import "../../components/base/";
+
+/* @define Info */
+.Info {
+  width: 100%;
+  height: 100%;
+  font-size: var(--Form-font-size-text);
+  overflow: auto;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 1000px) {
+  .Info {
+    flex-wrap: nowrap;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
+
+.Info-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 1000px) {
+  .Info-main {
+    padding-top: 0;
+    overflow: auto;
+  }
+}
+
+.Info-main p {
+  margin: 0.5em 0;
+}
+
+.Info-main p:first-child {
+  margin-top: 0;
+}
+
+.Info-content {
+  padding: 0.9rem var(--Form-padding) 2rem;
+  position: relative;
+}
+
+@media (min-width: 600px) {
+  .Info-content {
+    padding: 5rem var(--Form-space-md) var(--Form-space-md);
+  }
+}
+
+@media (min-width: 1000px) {
+  .Info-main {
+    flex: 1 1 auto;
+  }
+
+  .Info-content {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.Info-menu {
+  text-transform: uppercase;
+  color: rgb(var(--color-red));
+  user-select: none;
+  font-size: 0.95em;
+  text-decoration: none;
+  border-bottom: var(--Form-border-width) solid;
+  line-height: 1;
+  text-align: center;
+  margin: -0.6rem 0 -0.4rem;
+}
+
+@media (min-width: 600px) {
+  .Info-menu {
+    margin: -0.4rem 0 1.5rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .Info-menu {
+    font-size: 0.85em;
+  }
+}
+
+.Info-footer {
+  margin-top: var(--Form-space-md);
+  max-width: 45rem;
+}
+
+@media (min-width: 600px) {
+  .Info-footer {
+    padding: var(--Form-padding);
+    border: var(--Form-border-width) solid rgb(var(--color-red));
+  }
+}
+
+@media (min-width: 1000px) {
+  .Info-footer {
+    font-size: 2rem;
+  }
+}
+
+.Info-sidebar {
+  display: flex;
+  align-items: flex-end;
+  color: rgb(var(--color-yellow));
+  background-color: rgb(var(--color-red));
+  width: 100%;
+}
+
+@media (min-width: 1000px) {
+  .Info-sidebar {
+    flex: 0 0 35%;
+    height: 100%;
+    position: relative;
+    z-index: 10;
+  }
+}
+
+.Info-instructions {
+  padding: var(--Form-padding);
+  color: rgb(var(--color-yellow));
+  /* margin-bottom: var(--Form-space-sm); */
+}
+
+.Info-step {
+  font-size: 1em;
+  margin: 0.8rem 0;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+@media (min-width: 1200px) {
+  .Info-step {
+    font-size: 1.75rem;
+  }
+}
+
+.Info-step::before {
+  display: inline-block;
+  position: absolute;
+  left: 0.4rem;
+  top: 0.25rem;
+  font-size: 0.8rem;
+}
+
+.Info-step:nth-child(1)::before {
+  content: "1";
+}
+
+.Info-step:nth-child(2)::before {
+  content: "2";
+}
+
+.Info-step:nth-child(3)::before {
+  content: "3";
+}
+
+.Info-step a {
+  border-bottom: var(--Form-border-width) solid;
+}
