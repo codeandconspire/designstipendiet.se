@@ -10,7 +10,7 @@ var unparsed = require('koa-body/unparsed')
 var purge = require('./lib/purge')
 var email = require('./lib/email')
 
-var ENDPOINT = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLSd7gzpZ2H8-KAV_dB2NtFO0UcnvwDbVj-uvO883sSGgj57bCg/formResponse'
+var ENDPOINT = 'https://docs.google.com/forms/d/e/1FAIpQLSd-KWZRG36E_4kk8iipAPadu1WnYZljFptG_28D9y1jmHL5cQ/formResponse'
 
 var app = jalla('index.js', {
   sw: 'sw.js',
