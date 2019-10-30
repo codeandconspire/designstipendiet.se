@@ -158,9 +158,9 @@
   .Form-footer:hover:not(:empty),
   .Form-footer:focus-visible:not(:empty),
   .Form-footer:active:not(:empty) {
-    background-color: rgb(var(--color-red));
-    color: rgb(var(--color-yellow));
-    border-color: rgb(var(--color-red));
+    background-color: rgb(var(--color-default));
+    color: rgb(var(--color-highlight));
+    border-color: rgb(var(--color-default));
   }
 
   .Form-footer:hover:not(:empty)::after,
@@ -173,7 +173,7 @@
   :root .Form-action--next:focus-visible:not(:disabled):not(.is-disabled),
   :root .Form-action--next:active:not(:disabled):not(.is-disabled) {
     background-image: none;
-    color: rgb(var(--color-yellow));
+    color: rgb(var(--color-highlight));
   }
 
   .Form-footer {
@@ -208,7 +208,7 @@
     height: calc(100% - var(--Form-space-sm) - var(--Form-space-lg));
     position: relative;
     top: var(--Form-space-sm);
-    border-right: var(--Form-border-width) solid rgb(var(--color-red));
+    border-right: var(--Form-border-width) solid rgb(var(--color-default));
     line-height: 1.1;
   }
 
@@ -285,7 +285,7 @@
   width: 50%;
   height: 100%;
   padding: 0 var(--Form-padding);
-  border-left: var(--Form-border-width) solid rgb(var(--color-red));
+  border-left: var(--Form-border-width) solid rgb(var(--color-default));
   position: absolute;
   top: 0;
   right: 0;
@@ -295,8 +295,8 @@
 .Form-cancel:hover,
 .Form-cancel:focus-visible,
 .Form-cancel:active {
-  background: rgb(var(--color-red));
-  color: rgb(var(--color-yellow));
+  background: rgb(var(--color-default));
+  color: rgb(var(--color-highlight));
 }
 
 @media (min-width: 1000px) {
@@ -319,8 +319,8 @@
     align-items: center;
     padding: 0 var(--Form-padding) 0 var(--Form-space-lg);
     height: var(--Form-space-lg);
-    border-top: var(--Form-border-width) solid rgb(var(--color-red));
-    border-right: var(--Form-border-width) solid rgb(var(--color-red));
+    border-top: var(--Form-border-width) solid rgb(var(--color-default));
+    border-right: var(--Form-border-width) solid rgb(var(--color-default));
     font-size: 1.5rem;
     text-transform: uppercase;
     background: #fff;
@@ -402,21 +402,21 @@
 
 :root:not([scripting-enabled]) .Form-action--submit,
 :root[scripting-enabled] .Form-action--submit {
-  background-color: rgb(var(--color-red));
-  color: rgb(var(--color-yellow));
+  background-color: rgb(var(--color-default));
+  color: rgb(var(--color-highlight));
 }
 
 :root .Form-action--prev:hover:not(:disabled):not(.is-disabled),
 :root .Form-action--prev:focus-visible:not(:disabled):not(.is-disabled),
 :root .Form-action--prev:active:not(:disabled):not(.is-disabled) {
-  background-color: rgb(var(--color-red));
+  background-color: rgb(var(--color-default));
   background-image: url("./prev-white.svg");
 }
 
 :root .Form-action--next:hover:not(:disabled):not(.is-disabled),
 :root .Form-action--next:focus-visible:not(:disabled):not(.is-disabled),
 :root .Form-action--next:active:not(:disabled):not(.is-disabled) {
-  background-color: rgb(var(--color-red));
+  background-color: rgb(var(--color-default));
   background-image: url("./next-white.svg");
 }
 
@@ -552,7 +552,7 @@
   :root .Form-action--next:focus-visible:not(:disabled):not(.is-disabled),
   :root .Form-action--next:active:not(:disabled):not(.is-disabled) {
     background-image: none;
-    color: rgb(var(--color-yellow));
+    color: rgb(var(--color-highlight));
   }
 }
 
@@ -576,7 +576,7 @@
   padding: var(--Form-padding) var(--Form-padding) var(--Form-space-md);
   font-size: var(--Form-font-size-title);
   background-color: #fff;
-  color: rgb(var(--color-blue));
+  color: rgb(var(--color-feature));
 }
 
 .Form-tools {
@@ -594,7 +594,7 @@
   display: flex;
   flex-direction: column;
   font-size: 1.5rem;
-  border-top: var(--Form-border-width) solid rgb(var(--color-red));
+  border-top: var(--Form-border-width) solid rgb(var(--color-default));
 }
 
 @media (min-width: 1000px) {
@@ -614,7 +614,7 @@
 .Form-title {
   padding: 0 var(--Form-padding);
   margin-top: var(--Form-space-sm);
-  color: rgb(var(--color-blue));
+  color: rgb(var(--color-feature));
 }
 
 .Form-value {
@@ -645,7 +645,7 @@
  .Form-error {
   padding: 1rem;
   margin: 1rem 0.5rem;
-  color: rgb(var(--color-yellow));
+  color: rgb(var(--color-highlight));
   font-size: 14px;
-  background-color: rgb(var(--color-red));
+  background-color: rgb(var(--color-default));
 }

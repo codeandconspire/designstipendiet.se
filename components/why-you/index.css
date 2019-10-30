@@ -8,7 +8,7 @@
   height: 100%;
   user-select: none;
   -webkit-touch-callout: none;
-  border-top: var(--Form-border-width) solid rgb(var(--color-red));
+  border-top: var(--Form-border-width) solid rgb(var(--color-default));
 }
 
 @media (min-width: 1000px) {

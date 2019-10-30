@@ -3,10 +3,9 @@
 @import "./utils.css";
 
 :root {
-  --color-red: 255, 0, 0;
-  --color-blue: 0, 121, 255;
-  --color-yellow: 255, 255, 0;
-  --color-gray: 230, 230, 230;
+  --color-default: 255, 0, 0;
+  --color-feature: 0, 0, 0;
+  --color-highlight: 255, 255, 0;
 
   /* Base styles */
 
@@ -14,7 +13,7 @@
   --document-font-size: 1rem;
   --document-line-height: 1.2;
   --document-background: 255, 255, 255;
-  --document-color: var(--color-red);
+  --document-color: var(--color-default);
 
   --document-space: 2vw;
 
@@ -74,7 +73,7 @@
 }
 
 ::selection {
-  background: rgb(var(--color-yellow));
+  background: rgb(var(--color-highlight));
 }
 
 /**
@@ -91,7 +90,7 @@
  */
 
 :focus-visible {
-  background: rgb(var(--color-red));
+  background: rgb(var(--color-default));
   color: #fff;
   outline: none;
 }

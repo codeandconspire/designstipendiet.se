@@ -4,7 +4,7 @@
 .Opportunities {
   display: flex;
   width: 100%;
-  border-top: var(--Form-border-width) solid rgb(var(--color-red));
+  border-top: var(--Form-border-width) solid rgb(var(--color-default));
   user-select: none;
   flex: 1 0 auto;
   -webkit-touch-callout: none;
@@ -26,7 +26,7 @@
 }
 
 .Opportunities-option + .Opportunities-option {
-  border-left: var(--Form-border-width) solid rgb(var(--color-red));
+  border-left: var(--Form-border-width) solid rgb(var(--color-default));
 }
 
 @media (min-width: 1000px) {
@@ -38,7 +38,7 @@
 
   .Opportunities-option + .Opportunities-option {
     border-left: 0;
-    border-top: var(--Form-border-width) solid rgb(var(--color-red));
+    border-top: var(--Form-border-width) solid rgb(var(--color-default));
   }
 }
 
@@ -64,7 +64,7 @@
 }
 
 .Opportunities-toggle:checked ~ .Opportunities-label .Opportunities-indicator {
-  background: rgb(var(--color-yellow));
+  background: rgb(var(--color-highlight));
 }
 
 .Opportunities-label {

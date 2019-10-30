@@ -6,7 +6,7 @@
   flex-direction: column;
   height: 100%;
   user-select: none;
-  border-top: var(--Form-border-width) solid rgb(var(--color-red));
+  border-top: var(--Form-border-width) solid rgb(var(--color-default));
 }
 
 @media (min-width: 1000px) {
@@ -57,11 +57,11 @@
 }
 
 .HasApplied-toggle:checked + .HasApplied-indicator {
-  background: rgb(var(--color-yellow));
+  background: rgb(var(--color-highlight));
 }
 
 .HasApplied-toggle:checked ~ .HasApplied-label {
-  color: rgb(var(--color-red));
+  color: rgb(var(--color-default));
 }
 
 /**
@@ -75,8 +75,8 @@
   top: 50%;
   z-index: 2;
   font-size: var(--Form-font-size-small);
-  color: rgb(var(--color-yellow));
-  background: rgb(var(--color-red));
+  color: rgb(var(--color-highlight));
+  background: rgb(var(--color-default));
   opacity: 0;
   transform: translate(-2em, -50%);
   width: 9.3em;
@@ -127,7 +127,7 @@
   height: 0;
   border-style: solid;
   border-width: 0.4em 1em;
-  border-color: transparent rgb(var(--color-red)) transparent transparent;
+  border-color: transparent rgb(var(--color-default)) transparent transparent;
   position: absolute;
   right: calc(100% - 1px);
   top: 50%;
@@ -137,7 +137,7 @@
 @media (min-width: 1000px) {
   .HasApplied-tooltip::after {
     border-width: 1em 0.4em;
-    border-color: rgb(var(--color-red)) transparent transparent;
+    border-color: rgb(var(--color-default)) transparent transparent;
     left: 50%;
     right: auto;
     top: calc(100% - 1px);
