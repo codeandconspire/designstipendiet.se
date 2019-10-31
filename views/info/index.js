@@ -22,13 +22,8 @@ function home (state, emit) {
             <p>Familjen Robert Weils Stiftelse vill medverka till att Beckmans fortsätter att vara den relevanta plats det varit i 70 år. En högskola där en mångfald av erfarenheter finns med och påverkar utbildningen såväl som vår gemensamma framtid i en demokratisk och hållbar riktning.</p>
             <p>Därför har vi instiftat Designstipendiet.</p>
             <nav>
-              <a href="/" class="Info-menu">
-                Tillbaka
-              </a>
+              <a href="/" class="Info-menu">Tillbaka</a>
             </nav>
-            <div class="Info-footer">
-              Sista ansökningsdag 24 maj 2019 och besked om stipendiet ges runt den 25 juni.
-            </div>
           </div>
         </div>
         <div class="Info-sidebar">
@@ -37,6 +32,9 @@ function home (state, emit) {
             <li class="Info-step">Därefter kan du söka Designstipendiet</li>
             <li class="Info-step">Blir du utvald slipper du betala utbildningen</li>
           </ol>
+          <div class="Info-footer">
+            Sista ansökningsdag 24 maj 2019 och besked om stipendiet ges runt den 25 juni.
+          </div>
         </div>
       </main>
     </body>

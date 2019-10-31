@@ -46,8 +46,19 @@
   position: relative;
 }
 
+.Info-footer,
+.Info-instructions {
+  padding: 2rem var(--Form-padding);
+  width: 100%;
+}
+
 @media (min-width: 600px) {
   .Info-content {
+    padding: 5rem var(--Form-space-md) var(--Form-space-md);
+  }
+
+  .Info-footer,
+  .Info-instructions {
     padding: 5rem var(--Form-space-md) var(--Form-space-md);
   }
 }
@@ -68,7 +79,7 @@
   text-transform: uppercase;
   color: rgb(var(--color-default));
   user-select: none;
-  font-size: 0.95em;
+  font-size: var(--Form-font-size-interface);
   text-decoration: none;
   border-bottom: var(--Form-border-width) solid;
   line-height: 1;
@@ -88,34 +99,25 @@
   }
 }
 
-.Info-footer {
-  margin-top: var(--Form-space-md);
-}
-
-@media (min-width: 600px) {
-  .Info-footer {
-    padding: var(--Form-padding);
-    border: var(--Form-border-width) solid rgb(var(--color-default));
-  }
-}
-
-@media (min-width: 1000px) {
-  .Info-footer {
-    font-size: 2rem;
-  }
-}
-
 .Info-sidebar {
   display: flex;
   align-items: flex-end;
+  flex-direction: column;
   color: rgb(var(--color-highlight));
   background-color: rgb(var(--color-default));
   width: 100%;
+  /* padding: 0.9rem var(--Form-padding) 2rem; */
+}
+
+@media (min-width: 600px) {
+  .Info-sidebar {
+    /* padding: 5rem var(--Form-space-md) var(--Form-space-md); */
+  }
 }
 
 @media (min-width: 1000px) {
   .Info-sidebar {
-    flex: 0 0 35%;
+    flex: 0 0 50%;
     height: 100%;
     position: relative;
     z-index: 10;
@@ -123,44 +125,21 @@
 }
 
 .Info-instructions {
-  padding: var(--Form-padding);
-  color: rgb(var(--color-highlight));
-  /* margin-bottom: var(--Form-space-sm); */
+  flex: 1 1 50%;
 }
 
 .Info-step {
-  font-size: 1em;
-  margin: 0.8rem 0;
   position: relative;
-  padding-left: 1.2rem;
-}
-
-@media (min-width: 1200px) {
-  .Info-step {
-    font-size: 1.75rem;
-  }
-}
-
-.Info-step::before {
-  display: inline-block;
-  position: absolute;
-  left: 0.4rem;
-  top: 0.25rem;
-  font-size: 0.8rem;
-}
-
-.Info-step:nth-child(1)::before {
-  content: "1";
-}
-
-.Info-step:nth-child(2)::before {
-  content: "2";
-}
-
-.Info-step:nth-child(3)::before {
-  content: "3";
+  list-style: decimal;
+  list-style-position: inside;
 }
 
 .Info-step a {
   border-bottom: var(--Form-border-width) solid;
+}
+
+.Info-footer {
+  background: rgb(var(--color-feature));
+  color: #fff;
+  flex: 1 1 50%;
 }

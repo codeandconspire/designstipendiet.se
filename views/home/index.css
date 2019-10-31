@@ -5,6 +5,7 @@
   width: 100%;
   height: 100%;
   font-size: var(--Form-font-size-text);
+  background: rgb(var(--color-highlight));
   overflow: auto;
   position: relative;
   -webkit-overflow-scrolling: touch;
@@ -22,10 +23,20 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-top: 29vw;
-  margin-top: calc(var(--vh, 35vh) * 0.35);
-  position: relative;
   overflow: hidden;
+  padding-top: 70vw;
+}
+
+@media (min-width: 350px) {
+  .Home-main {
+    padding-top: 67vw;
+  }
+}
+
+@media (min-width: 600px) {
+  .Home-main {
+    padding-top: 60vw;
+  }
 }
 
 @media (min-width: 1000px) {
@@ -85,13 +96,12 @@
 .Home-apply {
   display: inline-block;
   margin: 1em 0;
-  padding: 0.7em 0.4em 0.6em;
+  padding: 0.7em 0.6em 0.6em;
   position: relative;
   overflow: hidden;
-  font-size: 0.95em;
+  font-size: var(--Form-font-size-interface);
   color: rgb(var(--color-default));
   border: var(--Form-border-width) solid rgb(var(--color-default));
-  background: rgb(var(--color-highlight));
   text-transform: uppercase;
   text-align: center;
   user-select: none;
@@ -114,7 +124,7 @@
 }
 
 .Home-menu {
-  font-size: 0.95em;
+  font-size: var(--Form-font-size-interface);
   text-decoration: none;
   line-height: 1;
   border-bottom: var(--Form-border-width) solid;
@@ -145,7 +155,7 @@
   left: 0;
   bottom: 0;
   height: var(--Form-space-sm);
-  background: #fff;
+  background: rgb(var(--color-highlight));
   align-items: center;
   z-index: 1;
 }
@@ -162,7 +172,7 @@
 
 @media (min-width: 1000px) {
   .Home-sidebar {
-    flex: 0 0 35%;
+    flex: 0 0 50%;
     position: relative;
     z-index: 10;
   }

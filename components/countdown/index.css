@@ -12,7 +12,7 @@
 }
 
 .Countdown-counter {
-  animation: Countdown-counter--rolling 15s forwards linear;
+  animation: Countdown-counter--rolling 10s forwards linear;
 }
 
 @keyframes Countdown-counter--rolling {
