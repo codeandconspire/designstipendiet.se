@@ -87,6 +87,12 @@
   margin: -0.6rem 0 -0.4rem;
 }
 
+.Info-menu:hover,
+.Info-menu:focus-visible,
+.Info-menu:active {
+  color: rgb(var(--color-feature));
+}
+
 @media (min-width: 600px) {
   .Info-menu {
     margin: -0.4rem 0 1.5rem;

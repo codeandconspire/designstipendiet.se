@@ -100,8 +100,9 @@
   position: relative;
   overflow: hidden;
   font-size: var(--Form-font-size-interface);
-  color: rgb(var(--color-default));
+  color: rgb(var(--color-highlight));
   border: var(--Form-border-width) solid rgb(var(--color-default));
+  background: rgb(var(--color-default));
   text-transform: uppercase;
   text-align: center;
   user-select: none;
@@ -119,8 +120,9 @@
 .Home-apply:hover,
 .Home-apply:focus-visible,
 .Home-apply:active {
-  color: rgb(var(--color-highlight));
-  background-color: rgb(var(--color-default));
+  color: #fff;
+  border-color: rgb(var(--color-feature));
+  background-color: rgb(var(--color-feature));
 }
 
 .Home-menu {
@@ -133,6 +135,12 @@
   text-transform: uppercase;
   color: rgb(var(--color-default));
   user-select: none;
+}
+
+.Home-menu:hover,
+.Home-menu:focus-visible,
+.Home-menu:active {
+  color: rgb(var(--color-feature));
 }
 
 @media (min-width: 600px) {

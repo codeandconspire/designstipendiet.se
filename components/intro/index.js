@@ -47,15 +47,15 @@ module.exports = class Intro extends Component {
       <div class="Intro" id="intro">
         <div class="Intro-1">
           <svg preserveAspectRatio="none" viewBox="0 0 781 191">
-            <g fill="red" fill-rule="evenodd">
+            <g fill="#f00" fill-rule="evenodd">
               <path d="M0 0h238v38h19v114h-19v39H95v-39h124V38H95v153H0zM270 0h273v38H365v38h121v36H365v42h178v36H270zM556 0h225v36H651v38h130v116H556v-37h131v-41H556z"/>
             </g>
           </svg>
         </div>
         <div class="Intro-2 js-last">
           <svg preserveAspectRatio="none" viewBox="0 0 781 191">
-            <g fill="#FFF" fill-rule="evenodd">
-              <path d="M0 0h86v191H0zM103 0h410v38H198v115h220v-28H260V87h253v104H103zM530 0h95l61 96V0h95v191h-95l-61-95v95h-95z"/>
+            <g fill="#fff" fill-rule="evenodd">
+              <path d="M0 0h86v191H0zM145 0h368v38H198v115h220v-28H260V87h253v104H145l-42-42V42zM530 0h95l61 96V0h95v191h-95l-61-95v95h-95z"/>
             </g>
           </svg>
         </div>

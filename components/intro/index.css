@@ -34,15 +34,29 @@
 }
 
 .Intro-1 {
-  animation: Intro-1--up 2000ms 1500ms forwards var(--ease-in);
+  animation: Intro-1--up 1800ms 1300ms forwards var(--ease-in);
   background: #fff;
 }
 
 .Intro-2 {
+  transform-origin: bottom;
   top: auto;
   bottom: 0;
   background: rgb(var(--color-default));
-  animation: Intro-1--down 2000ms 1500ms forwards var(--ease-in);
+  animation: Intro-1--down 1800ms 1300ms forwards var(--ease-in);
+}
+
+@media (min-width: 1000px) {
+  .Intro-1 {
+    animation:
+      Intro-1--up-step-1 300ms 1000ms forwards var(--ease),
+      Intro-1--up-step-2 200ms 2000ms forwards var(--ease-in);
+  }
+  .Intro-2 {
+    animation:
+      Intro-2--down-step-1 300ms 1000ms forwards var(--ease),
+      Intro-2--down-step-2 200ms 3000ms forwards var(--ease-in);
+  }
 }
 
 @keyframes Intro-1--up {
@@ -54,6 +68,36 @@
 @keyframes Intro-1--down {
   to {
     transform: translateY(calc(100% + 1px));
+  }
+}
+
+@keyframes Intro-1--up-step-1 {
+  to {
+    transform: scaleY(calc((1 / 3) * 2));
+  }
+}
+
+@keyframes Intro-1--up-step-2 {
+  from {
+    transform: scaleY(calc((1 / 3) * 2));
+  }
+  to {
+    transform: scaleY(calc((1 / 3) * 2)) translateY(-100%);
+  }
+}
+
+@keyframes Intro-2--down-step-1 {
+  to {
+    transform: scaleY(calc((1 / 3) * 2));
+  }
+}
+
+@keyframes Intro-2--down-step-2 {
+  from {
+    transform: scaleY(calc((1 / 3) * 2));
+  }
+  to {
+    transform: scaleY(calc((1 / 3) * 2)) translateY(100%);
   }
 }
 
@@ -126,11 +170,15 @@
     font-size: 8.2vw;
     color: rgb(var(--color-highlight));
     background: rgb(var(--color-default));
-    flex-grow: 0;
+    flex: 0 0 calc(100% / 3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
   }
 
   .Intro-blocks {
-    flex-grow: 1;
+    flex: 0 0 calc((100% / 3) * 2);
     flex-direction: column;
   }
 
@@ -141,7 +189,7 @@
 
   .Intro-logo svg {
     width: auto;
-    height: 100%;
+    height: calc((100vh / 3) - 1.8rem);
     margin: 0 auto;
   }
 }
