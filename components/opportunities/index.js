@@ -1,7 +1,7 @@
 var html = require('choo/html')
 var Component = require('choo/component')
 
-var NAME = 'entry.1218836425'
+var NAME = 'entry.650395077'
 
 module.exports = class Opportunities extends Component {
   constructor (id, state, emit) {

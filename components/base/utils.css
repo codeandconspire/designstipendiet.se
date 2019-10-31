@@ -10,6 +10,15 @@
   width: 1px !important;
 }
 
+.u-textTruncate {
+  display: block;
+  max-width: 100%;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  word-wrap: normal !important;
+}
+
 @media print {
   .u-printHidden {
     display: none !important;

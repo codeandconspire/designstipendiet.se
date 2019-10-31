@@ -1,10 +1,10 @@
 var html = require('choo/html')
 var Component = require('choo/component')
 
-var NAME = 'entry.481660275'
-var STREET_ADDRESS = 'entry.160977161'
-var POSTAL_CODE = 'entry.1139769175'
-var CITY = 'entry.31493464'
+var NAME = 'entry.2059089673'
+var STREET_ADDRESS = 'entry.107515453'
+var POSTAL_CODE = 'entry.1725516971'
+var CITY = 'entry.238109186'
 
 module.exports = class AboutYou extends Component {
   constructor (id, state, emit) {

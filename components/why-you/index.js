@@ -1,7 +1,7 @@
 var html = require('choo/html')
 var Component = require('choo/component')
 
-var NAME = 'entry.397921220'
+var NAME = 'entry.1100207245'
 
 module.exports = class WhyYou extends Component {
   constructor (id, state, emit) {

@@ -5,9 +5,9 @@ var scrollIntoView = require('scroll-into-view')
 var getDaysInMonth = require('date-fns/get_days_in_month')
 var { vw, vh } = require('../base')
 
-var MONTH = 'entry.1051571347_month'
-var DAY = 'entry.1051571347_day'
-var YEAR = 'entry.1051571347_year'
+var MONTH = 'entry.695845852_month'
+var DAY = 'entry.695845852_day'
+var YEAR = 'entry.695845852_year'
 var YEARS = [1900]
 for (let i = 0; i < 110; i++) YEARS.push(1900 + i)
 var MONTHS = ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli',

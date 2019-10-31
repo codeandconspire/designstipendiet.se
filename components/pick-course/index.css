@@ -1,0 +1,71 @@
+@import "../base";
+
+/* @PickCourse */
+.PickCourse {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  user-select: none;
+  border-top: var(--Form-border-width) solid rgb(var(--color-default));
+}
+
+@media (min-width: 1000px) {
+  .PickCourse {
+    border: 0;
+  }
+}
+
+.PickCourse-option {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  min-height: var(--Form-space-md);
+  padding: var(--Form-padding);
+  position: relative;
+}
+
+.PickCourse-option + .PickCourse-option {
+  border-top: var(--Form-border-width) solid;
+}
+
+@media (min-width: 1000px) {
+  .PickCourse-option {
+    justify-content: center;
+  }
+}
+
+
+.PickCourse-indicator {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.PickCourse-toggle {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  outline: none;
+  opacity: 0;
+}
+
+.PickCourse-toggle:checked + .PickCourse-indicator {
+  background: rgb(var(--color-highlight));
+}
+
+.PickCourse-toggle:checked ~ .PickCourse-label {
+  color: rgb(var(--color-default));
+}
+
+@media (min-width: 1000px) {
+  .PickCourse-label {
+    position: relative;
+  }
+}

@@ -35,9 +35,9 @@ function form (state, emitter, app) {
     state.error = null
     state.loading = false
     state.answers = Object.assign({
-      'entry.1051571347_month': 1,
-      'entry.1051571347_day': 1,
-      'entry.1051571347_year': 1990
+      'entry.695845852_month': 1,
+      'entry.695845852_day': 1,
+      'entry.695845852_year': 1990
     }, persisted, queried)
     state.contact = state.query.contact
   }
@@ -67,8 +67,8 @@ function form (state, emitter, app) {
         }
       } else {
         query += `&${key}=${encodeURIComponent(value)}`
-        if (key === 'entry.551104495.other_option_response') {
-          query += '&entry.551104495=__other_option__'
+        if (key === 'entry.1828762114.other_option_response') {
+          query += '&entry.1828762114=__other_option__'
         }
       }
       return query
@@ -82,15 +82,16 @@ function form (state, emitter, app) {
         'Accept': 'application/json'
       }
     }).then(function (res) {
+      console.log(res)
       if (!res.ok) return res.text().then((err) => Promise.reject(Error(err)))
       window.localStorage.removeItem(STORAGE_ID)
       state.step = 0
       state.loading = false
-      state.contact = state.answers['entry.1286633865']
+      state.contact = state.answers['entry.1183121357']
       state.answers = {
-        'entry.1051571347_month': 1,
-        'entry.1051571347_day': 1,
-        'entry.1051571347_year': 1990
+        'entry.695845852_month': 1,
+        'entry.695845852_day': 1,
+        'entry.695845852_year': 1990
       }
       emitter.emit('pushState', '/tack')
     }).catch(function (err) {

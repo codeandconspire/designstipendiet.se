@@ -29,13 +29,15 @@ app.use(post('/ansok', compose([
       body: ctx.request.body[unparsed]
     })
 
+    console.log(ctx.request.body[unparsed])
+
     var fields = ctx.request.body.entry
 
     // send an confirmation email
     await email(fields).catch(console.error)
 
     if (ctx.accepts('html')) {
-      ctx.redirect('/tack?contact=' + fields['1286633865'])
+      ctx.redirect('/tack?contact=' + fields['1183121357'])
     } else {
       ctx.type = 'application/json'
       ctx.body = {}

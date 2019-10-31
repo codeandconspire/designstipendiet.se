@@ -2,8 +2,10 @@ var html = require('choo/html')
 var { i18n, className } = require('../../components/base')
 var questions = [
   require('../../components/has-applied'),
-  require('../../components/why-you'),
+  require('../../components/pick-course'),
   require('../../components/opportunities'),
+  require('../../components/why-you'),
+  require('../../components/links'),
   require('../../components/prior-studies'),
   require('../../components/age'),
   require('../../components/about-you'),
@@ -47,8 +49,8 @@ function form (state, emit) {
           }
         } else {
           pairs.push([key, props[key]])
-          if (key === 'entry.551104495.other_option_response') {
-            pairs.push(['entry.551104495', '__other_option__'])
+          if (key === 'entry.1828762114.other_option_response') {
+            pairs.push(['entry.1828762114', '__other_option__'])
           }
         }
       }

@@ -1,8 +1,8 @@
 var html = require('choo/html')
 var Component = require('choo/component')
 
-var NAME = 'entry.551104495'
-var OTHER_NAME = 'entry.551104495.other_option_response'
+var NAME = 'entry.1828762114'
+var OTHER_NAME = 'entry.1828762114.other_option_response'
 var OPTIONS = [
   'Grundskola (årskurs 1-9)',
   'Gymnasium',

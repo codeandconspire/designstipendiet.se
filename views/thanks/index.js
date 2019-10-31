@@ -1,10 +1,9 @@
 var html = require('choo/html')
-var Banner = require('../../components/banner')
 
 module.exports = thanks
 
 function thanks (state, emit) {
-  var contact = state.contact ? state.contact.toUpperCase() : '?'
+  var contact = state.contact ? state.contact.toLowerCase() : '?'
 
   return html`
     <body>

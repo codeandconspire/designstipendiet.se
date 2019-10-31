@@ -630,6 +630,12 @@
   border-bottom: var(--Form-border-width) solid;
 }
 
+.Form-link:hover,
+.Form-link:focus-visible,
+.Form-link:active {
+  color: rgb(var(--color-feature));
+}
+
 @media (min-width: 1000px) {
   .Form-dl {
     border-top: 0;

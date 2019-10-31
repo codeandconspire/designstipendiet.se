@@ -1,8 +1,7 @@
 var html = require('choo/html')
 var Component = require('choo/component')
-var { className } = require('../base')
 
-var NAME = 'entry.2131449369'
+var NAME = 'entry.20819660'
 
 module.exports = class HasApplied extends Component {
   constructor (id, state, emit) {

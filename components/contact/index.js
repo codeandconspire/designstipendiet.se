@@ -1,8 +1,8 @@
 var html = require('choo/html')
 var Component = require('choo/component')
 
-var EMAIL = 'entry.1286633865'
-var TEL = 'entry.1025892237'
+var EMAIL = 'entry.1183121357'
+var TEL = 'entry.658979250'
 
 module.exports = class Contact extends Component {
   constructor (id, state, emit) {
