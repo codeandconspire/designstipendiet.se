@@ -6,7 +6,6 @@
   "scripts": {
     "build": "jalla build index.js --sw sw.js",
     "start": "node server.js",
-    "deploy": "npx now --scope codeandconspire && npx now alias --scope codeandconspire",
     "test": "standard"
   },
   "repository": {
@@ -22,17 +21,6 @@
         }
       ]
     ]
-  },
-  "now": {
-    "alias": "www.designstipendiet.se",
-    "env": {
-      "NODE_ENV": "production",
-      "CLOUDFLARE_ZONE": "@cloudflare-designstipendiet-zone",
-      "CLOUDFLARE_EMAIL": "@cloudflare-designstipendiet-email",
-      "CLOUDFLARE_KEY": "@cloudflare-designstipendiet-key",
-      "MAILGUN_KEY": "@mailgun-designstipendiet-key",
-      "POLYFILL_FEATURES": "es2015,es2016,es2017"
-    }
   },
   "author": "code and conspire",
   "license": "CC-BY-SA-4.0",
