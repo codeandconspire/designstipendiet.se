@@ -22,7 +22,7 @@ function home (state, emit) {
         <div class="Home-main">
           <div class="Home-content">
             <p>Din framtid kan börja på Beckmans Kvällsskola!</p>
-            <p>Familjen Robert Weils Stiftelse har startat Designstipendiet. Om du vill söka kvällsskolan men tvekar inför att den kostar pengar är du en av de som har möjlighet att ansöka om Designstipendiet. Stipendiet täcker kostnaden för utbildningen.</p>
+            <p>Ett stipendium till för dig som sökt någon av de tre utbildningarna Form, Mode och Visuell Kommunikation på Beckmans Kvällsskola. Vi i Familjen Robert Weils stiftelse har grundat Designstipendiet för att alla ska kunna gå utbildningarna, trots att det kostar 34 000 för ett år. Stipendiet täcker kostnaden för utbildningen.</p>
             <nav class="Home-nav">
               ${DEADLINE > Date.now() ? html`<a href="/ansok" class="Home-apply">Sök Stipendiet</a>` : null}
               <a href="/info" class="Home-menu">Mer info</a>
