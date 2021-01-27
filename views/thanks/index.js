@@ -10,7 +10,7 @@ function thanks (state, emit) {
       <main class="Thanks">
         <div class="Thanks-text">
           <h1 class="Thanks-title">Tack!</h1>
-          <p>Vi kontaktar dig på <span class="u-textBreak">${contact}</span> när urvalet till Designstipendiet är beslutat. Svaret kommer runt 18 juni 2020.</p>
+          <p>Vi kontaktar dig på <span class="u-textBreak">${contact}</span> när urvalet till Designstipendiet är beslutat. Svaret kommer runt 1 juli 2021.</p>
         </div>
       </main>
     </body>

@@ -16,7 +16,7 @@ var MONTHS = ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli',
 module.exports = class Age extends Component {
   constructor (id, state, emit) {
     super(id)
-    var year = parse(state.answers[YEAR], 1990)
+    var year = parse(state.answers[YEAR], 1995)
     var month = parse(state.answers[MONTH], 1) - 1
     var day = parse(state.answers[DAY], 1)
     this.local = state.components[id] = { id, year, month, day }

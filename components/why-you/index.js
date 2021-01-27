@@ -44,9 +44,9 @@ module.exports = class WhyYou extends Component {
     return html`
       <div class="WhyYou" id="${this.local.id}">
         <label class="WhyYou-option">
-          <div class="WhyYou-limit">${500 - this.local.value.length} tecken</div>
+          <div class="WhyYou-limit">${1000 - this.local.value.length} tecken</div>
           <span class="u-hiddenVisually">Varför tycker du att du ska få Designstipendiet?</span>
-          <textarea class="WhyYou-text" name="${NAME}" maxlength="500" required oninput=${oninput}>${this.local.value}</textarea>
+          <textarea class="WhyYou-text" name="${NAME}" maxlength="1000" required oninput=${oninput}>${this.local.value}</textarea>
           <span class="WhyYou-placeholder">Skriv här</span>
         </label>
       </div>
@@ -57,7 +57,7 @@ module.exports = class WhyYou extends Component {
       self.local.value = value
       callback(NAME, value)
       self.rerender()
-      if (value.length > 500) event.preventDefault()
+      if (value.length > 1000) event.preventDefault()
     }
   }
 }

@@ -116,7 +116,7 @@
   position: absolute;
   left: calc(100% * var(--Form-direction));
   top: 0;
-  box-shadow: 0 0 0 var(--Form-border-width) red;
+  box-shadow: 0 0 0 var(--Form-border-width) #00b41e;
 }
 
 .Form.is-intransition .Form-answer--next {
@@ -577,6 +577,18 @@
   font-size: var(--Form-font-size-title);
   background-color: #fff;
   color: rgb(var(--color-feature));
+}
+
+.Form-question small {
+  font-size: var(--Form-font-size-interface);
+  line-height: normal;
+  display: block;
+  margin-top: 1rem;
+  max-width: 21em;
+}
+
+.Form-question a {
+  text-decoration: underline;
 }
 
 .Form-tools {

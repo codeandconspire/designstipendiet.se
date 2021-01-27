@@ -3,7 +3,7 @@
 @import "./utils.css";
 
 :root {
-  --color-default: 255, 0, 0;
+  --color-default: 0, 180, 30;
   --color-feature: 0, 0, 0;
   --color-highlight: 255, 255, 0;
 

@@ -10,8 +10,7 @@ var unparsed = require('koa-body/unparsed')
 var purge = require('./lib/purge')
 var email = require('./lib/email')
 
-var ENDPOINT = 'https://docs.google.com/forms/d/e/1FAIpQLSd-KWZRG36E_4kk8iipAPadu1WnYZljFptG_28D9y1jmHL5cQ/formResponse'
-
+var ENDPOINT = 'https://docs.google.com/forms/d/e/1FAIpQLSdM-T0zn8tIhIy4s4O9D61mGqaezMUvg2Io-dwkWLQe9dKvbg/formResponse'
 var app = jalla('index.js', {
   sw: 'sw.js',
   serve: Boolean(process.env.HEROKU)

@@ -29,7 +29,7 @@ module.exports = class Links extends Component {
   }
 
   title () {
-    return 'Har du någon länk du vill visa oss? Kanske till din Instagram, portfolio, en spellista, eller en artikel du gillar.'
+    return html`<span>Har du några länkar du vill visa oss? Kanske till din Instagram, din portfolio, eller till något konto som inspirerar dig. <small>Du kan också maila filer till <a href="mailto:ls@proventus.se">ls@proventus.se</a> (glöm inte skriva ditt namn).</small></span>`
   }
 
   value () {
@@ -56,15 +56,15 @@ module.exports = class Links extends Component {
     return html`
       <div class="Links" id="${this.local.id}">
         <label class="Links-option">
-          <span class="Links-label">Länk 1:</span>
+          <span class="Links-label">Länk till arbetsprov:</span>
           <input class="Links-text" type="text" name="${LINK1}" value="${this.local[LINK1]}" autocomplete="url" oninput=${oninput}>
         </label>
         <label class="Links-option">
-          <span class="Links-label">Länk 2:</span>
+          <span class="Links-label">Länk till tidigare arbete:</span>
           <input class="Links-text" type="text" name="${LINK2}" value="${this.local[LINK2]}" autocomplete="url" oninput=${oninput}>
         </label>
         <label class="Links-option">
-          <span class="Links-label">Länk 3:</span>
+          <span class="Links-label">Länk till inspiration:</span>
           <input class="Links-text" type="text" name="${LINK3}" value="${this.local[LINK3]}" autocomplete="url" oninput=${oninput}>
         </label>
       </div>

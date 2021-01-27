@@ -3,7 +3,7 @@ var { i18n } = require('../../components/base')
 var Intro = require('../../components/intro')
 var Countdown = require('../../components/countdown')
 
-var DEADLINE = new Date('2020-05-19')
+var DEADLINE = new Date('2021-06-24')
 
 var text = i18n()
 

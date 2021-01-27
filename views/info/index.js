@@ -33,7 +33,7 @@ function home (state, emit) {
             <li class="Info-step">Blir du utvald slipper du betala utbildningen</li>
           </ol>
           <div class="Info-footer">
-            Sista ansökningsdag 18 maj 2020 och besked om stipendiet ges runt den 25 juni.
+            Sista ansökningsdag 23 juni 2021 och besked om stipendiet ges runt den 1 juli.
           </div>
         </div>
       </main>
