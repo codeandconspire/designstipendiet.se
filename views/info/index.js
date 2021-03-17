@@ -17,9 +17,9 @@ function home (state, emit) {
       <main class="Info js-scroll">
         <div class="Info-main">
           <div class="Info-content">
-            <p>Kvällsskolan på Beckmans: Form, Mode och Visuell Kommunikation.</p>
-            <p>Kvällsskolan har tre inriktningar och är en förberedande utbildning som erbjuder grundläggande orientering i ämnen som exempelvis möbelformgivning, mönsterkomposition, modedesign, fotografi, grafisk design och teckning. Alla utbildningar på Beckmans vilar på en konstnärlig grund.</p>
-            <p>Familjen Robert Weils Stiftelse vill medverka till att Beckmans fortsätter att vara den relevanta plats det varit i 70 år. En högskola där en mångfald av erfarenheter finns med och påverkar utbildningen såväl som vår gemensamma framtid i en demokratisk och hållbar riktning.</p>
+            <p>Kvällsskolan på Beckmans har tre inriktningar: Form, Mode och Visuell Kommunikation. Utbildningen är förberedande och vilar på konstnärlig grund.</p>
+            <p>Kvällsskolan erbjuder grundläggande orientering i ämnen som exempelvis möbelformgivning, mönsterkomposition, modedesign, fotografi, grafisk design och teckning.</p>
+            <p>Familjen Robert Weils Stiftelse vill medverka till att skolan fortsätter att vara den kreativa samlingsplats den varit sen 1939. En högskola där en mångfald av erfarenheter är med och skapar vår gemensamma framtid i en demokratisk och hållbar riktning.</p>
             <p>Därför har vi instiftat Designstipendiet.</p>
             <nav>
               <a href="/" class="Info-menu">Tillbaka</a>
