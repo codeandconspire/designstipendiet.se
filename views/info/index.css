@@ -77,7 +77,7 @@
 
 .Info-menu {
   text-transform: uppercase;
-  color: rgb(var(--color-default));
+  color: rgb(var(--color-2));
   user-select: none;
   font-size: var(--Form-font-size-interface);
   text-decoration: none;
@@ -90,7 +90,7 @@
 .Info-menu:hover,
 .Info-menu:focus-visible,
 .Info-menu:active {
-  color: rgb(var(--color-feature));
+  color: rgb(var(--color-3));
 }
 
 @media (min-width: 600px) {
@@ -109,8 +109,8 @@
   display: flex;
   align-items: flex-end;
   flex-direction: column;
-  color: rgb(var(--color-highlight));
-  background-color: rgb(var(--color-default));
+  color: rgb(var(--color-1));
+  background-color: rgb(var(--color-2));
   width: 100%;
   /* padding: 0.9rem var(--Form-padding) 2rem; */
 }
@@ -137,7 +137,7 @@
 .Info-step {
   position: relative;
   list-style: decimal;
-  list-style-position: inside;
+  margin-left: 1em;
 }
 
 .Info-step a {
@@ -145,7 +145,7 @@
 }
 
 .Info-footer {
-  background: rgb(var(--color-feature));
+  background: rgb(var(--color-3));
   color: #fff;
   flex: 1 1 50%;
 }

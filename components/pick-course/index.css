@@ -6,7 +6,7 @@
   flex-direction: column;
   height: 100%;
   user-select: none;
-  border-top: var(--Form-border-width) solid rgb(var(--color-default));
+  border-top: var(--Form-border-width) solid rgb(var(--color-2));
 }
 
 @media (min-width: 1000px) {
@@ -57,11 +57,11 @@
 }
 
 .PickCourse-toggle:checked + .PickCourse-indicator {
-  background: rgb(var(--color-highlight));
+  background: rgb(var(--color-2));
 }
 
 .PickCourse-toggle:checked ~ .PickCourse-label {
-  color: rgb(var(--color-default));
+  color: rgb(var(--color-1));
 }
 
 @media (min-width: 1000px) {

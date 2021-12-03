@@ -4,7 +4,7 @@
 .Opportunities {
   display: flex;
   width: 100%;
-  border-top: var(--Form-border-width) solid rgb(var(--color-default));
+  border-top: var(--Form-border-width) solid rgb(var(--color-2));
   user-select: none;
   flex: 1 0 auto;
   -webkit-touch-callout: none;
@@ -26,7 +26,7 @@
 }
 
 .Opportunities-option + .Opportunities-option {
-  border-left: var(--Form-border-width) solid rgb(var(--color-default));
+  border-left: var(--Form-border-width) solid rgb(var(--color-2));
 }
 
 @media (min-width: 1000px) {
@@ -38,7 +38,7 @@
 
   .Opportunities-option + .Opportunities-option {
     border-left: 0;
-    border-top: var(--Form-border-width) solid rgb(var(--color-default));
+    border-top: var(--Form-border-width) solid rgb(var(--color-2));
   }
 }
 
@@ -64,7 +64,11 @@
 }
 
 .Opportunities-toggle:checked ~ .Opportunities-label .Opportunities-indicator {
-  background: rgb(var(--color-highlight));
+  background: rgb(var(--color-2));
+}
+
+.Opportunities-toggle:checked ~ .Opportunities-label {
+  color: rgb(var(--color-1));
 }
 
 .Opportunities-label {
@@ -101,7 +105,7 @@
 .Opportunities-symbol {
   display: block;
   width: 60%;
-  margin: 0 auto 0.5rem;
+  margin: 0 auto 1rem;
   height: auto;
   max-width: 7rem;
 }
@@ -113,15 +117,13 @@
   }
 }
 
-
-
 .Opportunities-text {
   display: block;
 }
 
 .Opportunities-title {
   display: block;
-  margin-bottom: 0.2em;
+  margin-bottom: 0.5em;
   line-height: 1;
 }
 
@@ -130,7 +132,12 @@
   font-size: 0.9rem;
   line-height: 1.1;
   margin: 0 auto;
-  max-width: 9em;
+  max-width: 90%;
+  /* display: none; */
+}
+
+.Opportunities-description br {
+  display: none;
 }
 
 @media (min-width: 600px) {
@@ -147,14 +154,20 @@
   .Opportunities-title {
     font-size: var(--Form-font-size-text);
   }
+
+  .Opportunities-description {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1240px) {
+  .Opportunities-description br {
+    display: initial;
+  }
 }
 
 @media (min-width: 1000px) {
   .Opportunities-symbol {
     margin: 0 2rem 0 0;
-  }
-
-  .Opportunities-description {
-    max-width: none;
   }
 }

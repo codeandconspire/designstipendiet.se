@@ -8,7 +8,7 @@
   width: 100%;
   overflow: hidden;
   user-select: none;
-  border-top: var(--Form-border-width) solid rgb(var(--color-default));
+  border-top: var(--Form-border-width) solid rgb(var(--color-2));
 }
 
 @media (min-width: 1000px) {
@@ -32,7 +32,7 @@
 }
 
 .Age-list:not(:last-child) {
-  border-bottom: var(--Form-border-width) solid rgb(var(--color-default));
+  border-bottom: var(--Form-border-width) solid rgb(var(--color-2));
 }
 
 @media (min-width: 1000px) {
@@ -43,7 +43,7 @@
 
   .Age-list:not(:last-child) {
     border-bottom: 0;
-    border-right: var(--Form-border-width) solid rgb(var(--color-default));
+    border-right: var(--Form-border-width) solid rgb(var(--color-2));
   }
 }
 
@@ -98,9 +98,9 @@
 
 .Age-label {
   position: relative;
-  color: rgba(var(--color-default), 0.2);
+  color: rgba(var(--color-2), 0.2);
 }
 
 .Age-toggle:checked + .Age-label {
-  color: rgb(var(--color-default));
+  color: rgb(var(--color-2));
 }

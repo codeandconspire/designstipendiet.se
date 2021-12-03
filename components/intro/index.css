@@ -35,14 +35,14 @@
 
 .Intro-1 {
   animation: Intro-1--up 1800ms 1300ms forwards var(--ease-in);
-  background: #fff;
+  background: rgb(var(--color-2));
 }
 
 .Intro-2 {
   transform-origin: bottom;
   top: auto;
   bottom: 0;
-  background: rgb(var(--color-default));
+  background: rgb(var(--color-2));
   animation: Intro-1--down 1800ms 1300ms forwards var(--ease-in);
 }
 
@@ -108,8 +108,18 @@
 .Intro-year {
   position: relative;
   flex: 0 0 50%;
-  background: rgb(var(--color-feature));
-  color: rgb(var(--color-feature));
+  background: rgb(var(--color-1));
+  color: rgb(var(--color-1));
+}
+
+.Intro-year span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 8vh;
+  font-family: Caslon, Times, serif;
+  letter-spacing: -0.01em;
+  transform: translate(-50%, -50%);
 }
 
 .Intro-year::before {
@@ -120,7 +130,7 @@
   width: calc(100% - 2px);
   height: calc(100% - 2px);
   border-radius: 100%;
-  background: #fff;
+  background: rgb(var(--color-2));
 }
 
 .Intro-year svg {
@@ -135,7 +145,8 @@
 .Intro-logo {
   flex: 0 0 50%;
   padding: 0.9rem;
-  background: #fff;
+  background: rgb(var(--color-2));
+  color: #fff;
 }
 
 .Intro-logo svg {
@@ -146,17 +157,17 @@
 
 .Intro-title {
   text-transform: uppercase;
-  font-size: 16vw;
+  font-size: clamp(2rem, 9vw, 16.35vh);
   line-height: 0.88;
   font-weight: bold;
   padding: 0.9rem 0;
-  margin: -0.06em 0 -0.13em;
-  background: rgb(var(--color-highlight));
+  margin: -0.06em 0 -0.13em -0.03em;
+  background: rgb(var(--color-1));
 }
 
 .Intro-title span {
   display: block;
-  text-align: center;
+  padding: 0 var(--Form-padding);
 }
 
 
@@ -167,9 +178,9 @@
   }
 
   .Intro-title {
-    font-size: 8.2vw;
-    color: rgb(var(--color-highlight));
-    background: rgb(var(--color-default));
+    /* font-size: 8.2vw; */
+    color: rgb(var(--color-1));
+    background: rgb(var(--color-2));
     flex: 0 0 calc(100% / 3);
     display: flex;
     align-items: center;

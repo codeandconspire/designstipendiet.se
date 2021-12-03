@@ -5,7 +5,7 @@
   width: 100%;
   height: 100%;
   font-size: var(--Form-font-size-text);
-  background: rgb(var(--color-highlight));
+  background: rgb(var(--color-1));
   overflow: auto;
   position: relative;
   -webkit-overflow-scrolling: touch;
@@ -84,12 +84,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 @media (min-width: 600px) {
   .Home-nav {
-    align-items: flex-start; 
+    align-items: flex-start;
   }
 }
 
@@ -100,9 +100,9 @@
   position: relative;
   overflow: hidden;
   font-size: var(--Form-font-size-interface);
-  color: rgb(var(--color-highlight));
-  border: var(--Form-border-width) solid rgb(var(--color-default));
-  background: rgb(var(--color-default));
+  color: rgb(var(--color-1));
+  border: var(--Form-border-width) solid rgb(var(--color-2));
+  background: rgb(var(--color-2));
   text-transform: uppercase;
   text-align: center;
   user-select: none;
@@ -121,8 +121,8 @@
 .Home-apply:focus-visible,
 .Home-apply:active {
   color: #fff;
-  border-color: rgb(var(--color-feature));
-  background-color: rgb(var(--color-feature));
+  border-color: rgb(var(--color-3));
+  background-color: rgb(var(--color-3));
 }
 
 .Home-menu {
@@ -133,14 +133,18 @@
   display: inline-block;
   margin: -0.6rem 0 0;
   text-transform: uppercase;
-  color: rgb(var(--color-default));
+  color: rgb(var(--color-2));
   user-select: none;
 }
 
 .Home-menu:hover,
 .Home-menu:focus-visible,
 .Home-menu:active {
-  color: rgb(var(--color-feature));
+  color: rgb(var(--color-3));
+}
+
+.Home-menu:focus-visible {
+  background: none;
 }
 
 @media (min-width: 600px) {
@@ -158,12 +162,12 @@
 .Home-footer {
   display: flex;
   width: 100%;
-  border-top: var(--Form-border-width) solid rgb(var(--color-default));
+  border-top: var(--Form-border-width) solid rgb(var(--color-2));
   position: fixed;
   left: 0;
   bottom: 0;
   height: var(--Form-space-sm);
-  background: rgb(var(--color-highlight));
+  background: rgb(var(--color-1));
   align-items: center;
   z-index: 1;
 }

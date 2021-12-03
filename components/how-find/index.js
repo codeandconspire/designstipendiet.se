@@ -53,11 +53,11 @@ module.exports = class HowFind extends Component {
     return html`
       <div class="HowFind" id="${this.local.id}">
       <label class="HowFind-option">
-          <span class="HowFind-label">Jag hörde om Beckmans via…</span>
+          <span class="HowFind-label">Hörde om Beckmans via…</span>
           <input class="HowFind-text" type="text" name="${BECKMANS}" value="${this.local[BECKMANS]}" autocomplete="off" required oninput=${oninput}>
         </label>
         <label class="HowFind-option">
-          <span class="HowFind-label">Jag hörde om Designstipendiet via…</span>
+          <span class="HowFind-label">Hörde om Designstipendiet via…</span>
           <input class="HowFind-text" type="text" name="${DESIGNSTIPENDIET}" value="${this.local[DESIGNSTIPENDIET]}" autocomplete="off" required oninput=${oninput}>
         </label>
       </div>

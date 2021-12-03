@@ -7,7 +7,7 @@
   height: 100%;
   user-select: none;
   -webkit-touch-callout: none;
-  border-top: var(--Form-border-width) solid rgb(var(--color-default));
+  border-top: var(--Form-border-width) solid rgb(var(--color-2));
 }
 
 @media (min-width: 1000px) {
@@ -46,7 +46,7 @@
 }
 
 .PriorStudies-toggle:checked + .PriorStudies-indicator {
-  background: rgb(var(--color-highlight));
+  background: rgb(var(--color-2));
 }
 
 .PriorStudies-label {
@@ -54,7 +54,7 @@
 }
 
 .PriorStudies-toggle:checked ~ .PriorStudies-label {
-  color: rgb(var(--color-default));
+  color: rgb(var(--color-1));
 }
 
 .PriorStudies-toggle ~ .PriorStudies-label::after {

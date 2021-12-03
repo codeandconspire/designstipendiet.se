@@ -1,44 +1,32 @@
 var html = require('choo/html')
 var Component = require('choo/component')
 
-var LINK1 = 'entry.538718527'
-var LINK2 = 'entry.1737729401'
-var LINK3 = 'entry.374175773'
+var NAME = 'entry.538718527'
 
 module.exports = class Links extends Component {
   constructor (id, state, emit) {
     super(id)
-    this.local = state.components[id] = {
-      id,
-      [LINK1]: state.answers[LINK1] || '',
-      [LINK2]: state.answers[LINK2] || '',
-      [LINK3]: state.answers[LINK3] || ''
-    }
+    var value = state.answers[NAME] || ''
+    this.local = state.components[id] = { id, value }
   }
 
   verify () {
-    return true
+    return Boolean(this.local.value)
   }
 
   serialize () {
-    return {
-      [LINK1]: this.local[LINK1],
-      [LINK2]: this.local[LINK2],
-      [LINK3]: this.local[LINK3]
-    }
+    return { [NAME]: this.local.value }
   }
 
   title () {
-    return html`<span>Har du några länkar du vill visa oss? Kanske till din Instagram, din portfolio, eller till något konto som inspirerar dig. <small>Du kan också maila filer till <a href="mailto:ls@proventus.se">ls@proventus.se</a> (glöm inte skriva ditt namn).</small></span>`
+    return 'Vilka perspektiv kan du bidra med som du tror Beckmans saknar?'
   }
 
   value () {
     return html`
-      <p>
-        <div class="u-textTruncate">${this.local[LINK1]}</div>
-        <div class="u-textTruncate">${this.local[LINK2]}</div>
-        <div class="u-textTruncate">${this.local[LINK3]}</div>
-      </p>
+      <div>
+        ${this.local.value.split(/\n+/).map((part) => html`<p>${part}</p>`)}
+      </div>
     `
   }
 
@@ -54,28 +42,22 @@ module.exports = class Links extends Component {
     var self = this
 
     return html`
-      <div class="Links" id="${this.local.id}">
-        <label class="Links-option">
-          <span class="Links-label">Länk till arbetsprov:</span>
-          <input class="Links-text" type="text" name="${LINK1}" value="${this.local[LINK1]}" autocomplete="url" oninput=${oninput}>
-        </label>
-        <label class="Links-option">
-          <span class="Links-label">Länk till tidigare arbete:</span>
-          <input class="Links-text" type="text" name="${LINK2}" value="${this.local[LINK2]}" autocomplete="url" oninput=${oninput}>
-        </label>
-        <label class="Links-option">
-          <span class="Links-label">Länk till inspiration:</span>
-          <input class="Links-text" type="text" name="${LINK3}" value="${this.local[LINK3]}" autocomplete="url" oninput=${oninput}>
+      <div class="WhyYou" id="${this.local.id}">
+        <label class="WhyYou-option">
+          <div class="WhyYou-limit">${700 - this.local.value.length} tecken</div>
+          <span class="u-hiddenVisually">Vad skulle göra världen till en bättre plats tycker du?</span>
+          <textarea class="WhyYou-text" name="${NAME}" maxlength="700" required oninput=${oninput}>${this.local.value}</textarea>
+          <span class="WhyYou-placeholder">Skriv här</span>
         </label>
       </div>
     `
 
     function oninput (event) {
-      var target = event.target
-      var name = target.name
-      var value = target.value.trim()
-      self.local[name] = value
-      callback(name, value)
+      var value = event.target.value
+      self.local.value = value
+      callback(NAME, value)
+      self.rerender()
+      if (value.length > 700) event.preventDefault()
     }
   }
 }

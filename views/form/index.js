@@ -6,7 +6,6 @@ var questions = [
   require('../../components/how-find'),
   require('../../components/opportunities'),
   require('../../components/why-you'),
-  require('../../components/links'),
   require('../../components/prior-studies'),
   require('../../components/age'),
   require('../../components/about-you'),
@@ -78,7 +77,7 @@ function form (state, emit) {
         ${answers.map(([name, value]) => html`<input type="hidden" name="${name}" value="${value}">`)}
 
         <div class="Form-statusbar">
-          <span>${state.step < questions.length ? `${state.step + 1}/${questions.length}` : null}</span>
+          <span class="Form-step">${state.step < questions.length ? `${state.step + 1}/${questions.length}` : null}</span>
           <a href="/" class="Form-cancel" onclick=${reset}><span>Avbryt</span></a>
         </div>
 

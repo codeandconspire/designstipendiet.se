@@ -10,11 +10,11 @@
   --Form-font-size-small: 1rem;
   --Form-font-size-interface: 1.5rem;
   --Form-font-size-title: 2rem;
-  --Form-font-size-text: 1.7rem;
+  --Form-font-size-text: 1.5rem;
 
   --Form-border-width: 3px;
 
-  --Form-animation-duration: 350ms;
+  --Form-animation-duration: 0;
   --Form-animation-easing: cubic-bezier(0.42, 0.34, 0.18, 0.99);
 }
 
@@ -116,7 +116,7 @@
   position: absolute;
   left: calc(100% * var(--Form-direction));
   top: 0;
-  box-shadow: 0 0 0 var(--Form-border-width) #00b41e;
+  /* box-shadow: 0 0 0 var(--Form-border-width) #00b41e; */
 }
 
 .Form.is-intransition .Form-answer--next {
@@ -125,8 +125,8 @@
 
 .Form.is-intransition .Form-tools {
   z-index: -1;
-  overflow: visible;
-  animation: 350ms forwards cubic-bezier(0.42, 0.34, 0.18, 0.99);
+  /* overflow: visible; */
+  animation: 0 forwards cubic-bezier(0.42, 0.34, 0.18, 0.99);
 }
 
 .Form.Form--backward .Form-tools {
@@ -155,33 +155,33 @@
     width: 50%;
   }
 
-  .Form-footer:hover:not(:empty),
   .Form-footer:focus-visible:not(:empty),
   .Form-footer:active:not(:empty) {
-    background-color: rgb(var(--color-default));
-    color: rgb(var(--color-highlight));
-    border-color: rgb(var(--color-default));
+    background-color: rgb(var(--color-2));
+    color: rgb(var(--color-1));
+    border-color: rgb(var(--color-2));
   }
 
-  .Form-footer:hover:not(:empty)::after,
   .Form-footer:focus-visible:not(:empty)::after,
   .Form-footer:active:not(:empty)::after {
     background-image: url("./prev-white.svg") !important;
   }
 
-  :root .Form-action--next:hover:not(:disabled):not(.is-disabled),
   :root .Form-action--next:focus-visible:not(:disabled):not(.is-disabled),
   :root .Form-action--next:active:not(:disabled):not(.is-disabled) {
     background-image: none;
-    color: rgb(var(--color-highlight));
+    color: rgb(var(--color-1));
   }
 
   .Form-footer {
     display: block;
   }
 
+  .Form-footer:not(:empty) {
+    cursor: pointer;
+  }
+
   .Form-footer:disabled,
-  .Form-footer:disabled:hover,
   .Form-footer:disabled:active {
     background: transparent;
     color: transparent;
@@ -208,7 +208,7 @@
     height: calc(100% - var(--Form-space-sm) - var(--Form-space-lg));
     position: relative;
     top: var(--Form-space-sm);
-    border-right: var(--Form-border-width) solid rgb(var(--color-default));
+    border-right: var(--Form-border-width) solid rgb(var(--color-2));
     line-height: 1.1;
   }
 
@@ -280,23 +280,34 @@
 
 .Form-cancel {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-end;
   width: 50%;
   height: 100%;
   padding: 0 var(--Form-padding);
-  border-left: var(--Form-border-width) solid rgb(var(--color-default));
+  border-left: var(--Form-border-width) solid rgb(var(--color-2));
   position: absolute;
   top: 0;
   right: 0;
   text-align: right;
+  font-size: 0.9em;
+  line-height: 1.4;
+  cursor: pointer;
 }
 
-.Form-cancel:hover,
+.Form-step {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
 .Form-cancel:focus-visible,
 .Form-cancel:active {
-  background: rgb(var(--color-default));
-  color: rgb(var(--color-highlight));
+  background: rgb(var(--color-2));
+  color: rgb(var(--color-1));
 }
 
 @media (min-width: 1000px) {
@@ -319,8 +330,8 @@
     align-items: center;
     padding: 0 var(--Form-padding) 0 var(--Form-space-lg);
     height: var(--Form-space-lg);
-    border-top: var(--Form-border-width) solid rgb(var(--color-default));
-    border-right: var(--Form-border-width) solid rgb(var(--color-default));
+    border-top: var(--Form-border-width) solid rgb(var(--color-2));
+    border-right: var(--Form-border-width) solid rgb(var(--color-2));
     font-size: 1.5rem;
     text-transform: uppercase;
     background: #fff;
@@ -370,6 +381,7 @@
   white-space: nowrap;
   font: inherit;
   font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .Form-action + .Form-action {
@@ -402,21 +414,19 @@
 
 :root:not([scripting-enabled]) .Form-action--submit,
 :root[scripting-enabled] .Form-action--submit {
-  background-color: rgb(var(--color-default));
-  color: rgb(var(--color-highlight));
+  background-color: rgb(var(--color-2));
+  color: rgb(var(--color-1));
 }
 
-:root .Form-action--prev:hover:not(:disabled):not(.is-disabled),
 :root .Form-action--prev:focus-visible:not(:disabled):not(.is-disabled),
 :root .Form-action--prev:active:not(:disabled):not(.is-disabled) {
-  background-color: rgb(var(--color-default));
+  background-color: rgb(var(--color-2));
   background-image: url("./prev-white.svg");
 }
 
-:root .Form-action--next:hover:not(:disabled):not(.is-disabled),
 :root .Form-action--next:focus-visible:not(:disabled):not(.is-disabled),
 :root .Form-action--next:active:not(:disabled):not(.is-disabled) {
-  background-color: rgb(var(--color-default));
+  background-color: rgb(var(--color-2));
   background-image: url("./next-white.svg");
 }
 
@@ -468,7 +478,7 @@
 
   .Form.is-intransition .Form-nav:not(.Form-nav--placeholder) {
     z-index: -1;
-    animation: Form-nav--transition 350ms forwards cubic-bezier(0.42, 0.34, 0.18, 0.99);
+    animation: Form-nav--transition 0 forwards cubic-bezier(0.42, 0.34, 0.18, 0.99);
   }
 
   @keyframes Form-nav--transition {
@@ -503,7 +513,7 @@
 
   .Form-action--submit {
     flex: 1 0 100%;
-    cursor: pointer;
+    cursor: pointer !important;
   }
 
   .Form-action--prev {
@@ -542,17 +552,15 @@
 
   :root:not([scripting-enabled]) .Form-action--submit::after,
   :root[scripting-enabled] .Form-action--submit:not(:disabled)::after,
-  :root .Form-action--next:hover:not(:disabled):not(.is-disabled)::after,
   :root .Form-action--next:focus-visible:not(:disabled):not(.is-disabled)::after,
   :root .Form-action--next:active:not(:disabled):not(.is-disabled)::after {
     background-image: url("./next-white.svg");
   }
 
-  :root .Form-action--next:hover:not(:disabled):not(.is-disabled),
   :root .Form-action--next:focus-visible:not(:disabled):not(.is-disabled),
   :root .Form-action--next:active:not(:disabled):not(.is-disabled) {
     background-image: none;
-    color: rgb(var(--color-highlight));
+    color: rgb(var(--color-1));
   }
 }
 
@@ -575,8 +583,7 @@
 .Form-question {
   padding: var(--Form-padding) var(--Form-padding) var(--Form-space-md);
   font-size: var(--Form-font-size-title);
-  background-color: #fff;
-  color: rgb(var(--color-feature));
+  line-height: 1.07;
 }
 
 .Form-question small {
@@ -606,7 +613,7 @@
   display: flex;
   flex-direction: column;
   font-size: 1.5rem;
-  border-top: var(--Form-border-width) solid rgb(var(--color-default));
+  border-top: var(--Form-border-width) solid rgb(var(--color-2));
 }
 
 @media (min-width: 1000px) {
@@ -626,11 +633,11 @@
 .Form-title {
   padding: 0 var(--Form-padding);
   margin-top: var(--Form-space-sm);
-  color: rgb(var(--color-feature));
 }
 
 .Form-value {
   padding: 0 var(--Form-padding);
+  color: rgb(var(--color-3));
   margin: 0;
 }
 
@@ -645,7 +652,7 @@
 .Form-link:hover,
 .Form-link:focus-visible,
 .Form-link:active {
-  color: rgb(var(--color-feature));
+  color: rgb(var(--color-3));
 }
 
 @media (min-width: 1000px) {
@@ -663,7 +670,7 @@
  .Form-error {
   padding: 1rem;
   margin: 1rem 0.5rem;
-  color: rgb(var(--color-highlight));
+  color: rgb(var(--color-1));
   font-size: 14px;
-  background-color: rgb(var(--color-default));
+  background-color: rgb(var(--color-2));
 }

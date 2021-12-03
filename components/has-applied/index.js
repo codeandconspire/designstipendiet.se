@@ -48,9 +48,9 @@ module.exports = class HasApplied extends Component {
           <input class="HasApplied-toggle" type="radio" name="${NAME}" value="Nej" checked=${this.local.value === 'Nej'} onchange=${onchange}>
           <div class="HasApplied-indicator"></div>
           <span class="HasApplied-label">
-            Nej..
+            Nej, inte än
             <span class="HasApplied-tooltip">
-              Se till att göra det på <a href="https://www.beckmans.se/studera/forberedande-utbildning-kvallsskola/kvallskola-form/" rel="noopener noreferrer" target="_blank">beckmans.se</a>
+              Börja med det! Läs mer på <a href="https://beckmans.se/studera/forberedande-utbildning-kvallsskolan/" rel="noopener noreferrer" target="_blank">beckmans.se</a>
             </span>
           </span>
         </label>

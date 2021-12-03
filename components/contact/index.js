@@ -26,7 +26,7 @@ module.exports = class Contact extends Component {
   }
 
   title () {
-    return 'När urvalet är gjort, runt den 25 juni, hur vill du bli kontaktad?'
+    return 'När urvalet är gjort, hur vill du bli kontaktad?'
   }
 
   value () {
@@ -52,7 +52,7 @@ module.exports = class Contact extends Component {
     return html`
       <div class="Contact" id="${this.local.id}">
       <label class="Contact-option">
-          <span class="Contact-label">E-post:</span>
+          <span class="Contact-label">Mail:</span>
           <input class="Contact-text" type="email" name="${EMAIL}" value="${this.local[EMAIL]}" autocomplete="email" required oninput=${oninput}>
         </label>
         <label class="Contact-option">

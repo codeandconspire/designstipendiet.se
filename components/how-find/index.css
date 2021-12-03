@@ -14,7 +14,7 @@
   flex: 1 1 auto;
   display: block;
   padding: var(--Form-padding);
-  border-top: var(--Form-border-width) solid rgb(var(--color-default));
+  border-top: var(--Form-border-width) solid rgb(var(--color-2));
   font-size: var(--Form-font-size-title);
 }
 
@@ -24,7 +24,7 @@
   }
 
   .HowFind-option:last-child {
-    border-bottom: var(--Form-border-width) solid rgb(var(--color-default));
+    border-bottom: var(--Form-border-width) solid rgb(var(--color-2));
   }
 }
 
@@ -41,8 +41,8 @@
   margin-bottom: calc(var(--Form-padding) * -1);
   background: transparent;
   border-radius: 0;
+  color: rgb(var(--color-3));
   box-shadow: none;
-  color: currentColor;
   -webkit-appearance: none;
 }
 
@@ -61,6 +61,6 @@
   }
 
   .HowFind-option:last-child {
-    border-bottom: var(--Form-border-width) solid rgb(var(--color-default));
+    border-bottom: var(--Form-border-width) solid rgb(var(--color-2));
   }
 }

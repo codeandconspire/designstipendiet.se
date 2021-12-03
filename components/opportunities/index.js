@@ -53,7 +53,7 @@ module.exports = class Opportunities extends Component {
             </svg>
             <span class="Opportunities-text">
               <span class="Opportunities-title">Dåliga</span>
-              <small class="Opportunities-description">Kommer inte kunna gå, har inte råd</small>
+              <small class="Opportunities-description">Kommer inte kunna gå, <br>har inte råd</small>
             </span>
           </span>
         </label>
@@ -71,7 +71,7 @@ module.exports = class Opportunities extends Component {
             </svg>
             <span class="Opportunities-text">
               <span class="Opportunities-title">Hmm</span>
-              <small class="Opportunities-description">Vet inte, kanske löser sig</small>
+              <small class="Opportunities-description">Vet inte, <br>kanske löser sig</small>
             </span>
           </span>
         </label>
@@ -89,7 +89,7 @@ module.exports = class Opportunities extends Component {
             </svg>
             <span class="Opportunities-text">
               <span class="Opportunities-title">Bra!</span>
-              <small class="Opportunities-description">Det löser sig, kommer att gå oavsett</small>
+              <small class="Opportunities-description">Det löser sig, <br>kommer att gå oavsett</small>
             </span>
           </span>
         </label>
