@@ -34,7 +34,7 @@ function home (state, emit) {
             <li class="Info-step">Blir du utvald bekostar stipendiet utbildningen och du får jurygruppen som bollplank under året.</li>
           </ol>
           <div class="Info-footer">
-            Sista ansökningsdag 15 maj 2022 och besked om stipendiet ges kort där efter.
+            Sista ansökningsdag 31 maj 2022 och besked om stipendiet ges kort där efter.
           </div>
         </div>
       </main>
