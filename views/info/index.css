@@ -52,6 +52,10 @@
   width: 100%;
 }
 
+.Info-instructions {
+  padding: 2rem var(--Form-padding) 2rem calc(var(--Form-padding) + 0.3em);
+}
+
 @media (min-width: 600px) {
   .Info-content {
     padding: 5rem var(--Form-space-md) var(--Form-space-md);
@@ -60,6 +64,10 @@
   .Info-footer,
   .Info-instructions {
     padding: 5rem var(--Form-space-md) var(--Form-space-md);
+  }
+
+  .Info-instructions {
+    padding: 5rem var(--Form-space-md) var(--Form-space-md) calc(var(--Form-space-md) + 0.35em);
   }
 }
 
