@@ -131,7 +131,7 @@ function form (state, emit) {
         </div>
 
         <div class="Form-nav">
-          ${!isSummary ? html`
+          ${!isSummary && state.step > 0 ? html`
             <a href="${state.href}${query}${query ? '&' : '?'}q=${state.step - 1}" class="Form-action Form-action--prev ${state.step === 0 ? 'is-disabled' : ''}" label="Förra frågan" onclick=${onclick(state.step - 1)}>
               <span class="Form-button">Förra frågan</span>
             </a>
