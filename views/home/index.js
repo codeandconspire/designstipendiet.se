@@ -24,7 +24,7 @@ function home (state, emit) {
             <p>Din framtid kan börja på Beckmans Kvällsskola!</p>
             <p>Ett stipendium till för dig som vill gå någon av de tre kvällskurserna på <a href="https://beckmans.se/kvallsskolan/" target="_blank">Beckmans Kvällsskola</a>. Familjen Robert Weils stiftelse har grundat Designstipendiet för att alla, oavsett bakgrund, ska kunna ha möjlighet att tacka ja om de erbjuds en plats.</p>
             <nav class="Home-nav">
-              ${DEADLINE > Date.now() ? html`<a href="/ansok" class="Home-apply">Sök Stipendiet</a>` : null}
+              ${DEADLINE > Date.now() ? html`<a href="/ansok" class="Home-apply">Sök Stipendiet</a>` : html`<span style="color: black">Årets ansökning är nu stängd<br /><br /></span>`}
               <a href="/info" class="Home-menu">Mer info</a>
             </nav>
           </div>
