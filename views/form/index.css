@@ -1,4 +1,4 @@
-@import "../../components/base";
+@import '../../components/base';
 
 /* @define Form */
 :root {
@@ -164,7 +164,7 @@
 
   .Form-footer:focus-visible:not(:empty)::after,
   .Form-footer:active:not(:empty)::after {
-    background-image: url("./prev-white.svg") !important;
+    background-image: url('./prev-white.svg') !important;
   }
 
   :root .Form-action--next:focus-visible:not(:disabled):not(.is-disabled),
@@ -272,7 +272,7 @@
 }
 
 @media (min-width: 1000px) {
-  .Form-statusbar{
+  .Form-statusbar {
     width: 50%;
     border-right: var(--Form-border-width) solid;
   }
@@ -293,6 +293,13 @@
   font-size: 0.9em;
   line-height: 1.4;
   cursor: pointer;
+  text-decoration: none;
+}
+
+@media (min-height: 800px) and (min-width: 1200px) {
+  .Form-cancel {
+    line-height: 1.1;
+  }
 }
 
 .Form-step {
@@ -338,13 +345,13 @@
   }
 
   .Form-footer:not(:empty):not(:disabled)::after {
-    content: "";
+    content: '';
     width: var(--Form-space-lg);
     height: var(--Form-space-lg);
     position: absolute;
     bottom: 0;
     left: 0;
-    background-image: url("./prev.svg");
+    background-image: url('./prev.svg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: var(--Form-space-md);
@@ -389,12 +396,12 @@
 }
 
 .Form-action--prev {
-  background: url("./prev.svg") no-repeat center center;
+  background: url('./prev.svg') no-repeat center center;
   background-size: var(--Form-space-md);
 }
 
 .Form-action:not(.Form-action--submit).is-disabled {
-  background-image: url("./disabled.svg");
+  background-image: url('./disabled.svg');
   background-size: 101% 100%;
   pointer-events: none;
 }
@@ -406,7 +413,7 @@
 
 :root:not([scripting-enabled]) .Form-action--next,
 :root[scripting-enabled] .Form-action--next:not(:disabled) {
-  background-image: url("./next.svg");
+  background-image: url('./next.svg');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: var(--Form-space-md);
@@ -421,17 +428,17 @@
 :root .Form-action--prev:focus-visible:not(:disabled):not(.is-disabled),
 :root .Form-action--prev:active:not(:disabled):not(.is-disabled) {
   background-color: rgb(var(--color-2));
-  background-image: url("./prev-white.svg");
+  background-image: url('./prev-white.svg');
 }
 
 :root .Form-action--next:focus-visible:not(:disabled):not(.is-disabled),
 :root .Form-action--next:active:not(:disabled):not(.is-disabled) {
   background-color: rgb(var(--color-2));
-  background-image: url("./next-white.svg");
+  background-image: url('./next-white.svg');
 }
 
 :root[scripting-enabled] .Form-action--submit:disabled::before {
-  content: "";
+  content: '';
   display: inline-block;
   width: var(--Form-space-md);
   height: var(--Form-space-md);
@@ -478,7 +485,8 @@
 
   .Form.is-intransition .Form-nav:not(.Form-nav--placeholder) {
     z-index: -1;
-    animation: Form-nav--transition 0 forwards cubic-bezier(0.42, 0.34, 0.18, 0.99);
+    animation: Form-nav--transition 0 forwards
+      cubic-bezier(0.42, 0.34, 0.18, 0.99);
   }
 
   @keyframes Form-nav--transition {
@@ -508,7 +516,8 @@
     bottom: calc(var(--Form-space-lg) - 1em);
     font-size: 1.5rem;
     transform-origin: 0 0;
-    transform: translateX(calc(100% - (var(--Form-space-lg) / 2) - 0.5em)) rotate(-90deg);
+    transform: translateX(calc(100% - (var(--Form-space-lg) / 2) - 0.5em))
+      rotate(-90deg);
   }
 
   .Form-action--submit {
@@ -532,13 +541,13 @@
   :root[scripting-enabled] .Form-action--next:not(:disabled)::after,
   :root:not([scripting-enabled]) .Form-action--submit::after,
   :root[scripting-enabled] .Form-action--submit:not(:disabled)::after {
-    content: "";
+    content: '';
     width: var(--Form-space-lg);
     height: var(--Form-space-lg);
     position: absolute;
     bottom: 0;
     left: 0;
-    background-image: url("./next.svg");
+    background-image: url('./next.svg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: var(--Form-space-md);
@@ -552,9 +561,10 @@
 
   :root:not([scripting-enabled]) .Form-action--submit::after,
   :root[scripting-enabled] .Form-action--submit:not(:disabled)::after,
-  :root .Form-action--next:focus-visible:not(:disabled):not(.is-disabled)::after,
+  :root
+    .Form-action--next:focus-visible:not(:disabled):not(.is-disabled)::after,
   :root .Form-action--next:active:not(:disabled):not(.is-disabled)::after {
-    background-image: url("./next-white.svg");
+    background-image: url('./next-white.svg');
   }
 
   :root .Form-action--next:focus-visible:not(:disabled):not(.is-disabled),
@@ -642,11 +652,7 @@
 }
 
 .Form-restart {
-  padding: var(--Form-space-sm) var(--Form-padding);
-}
-
-.Form-link {
-  border-bottom: var(--Form-border-width) solid;
+  padding: calc(var(--Form-space-sm) - 0.58rem) var(--Form-padding);
 }
 
 .Form-link:hover,
@@ -667,7 +673,7 @@
  * Error
  */
 
- .Form-error {
+.Form-error {
   padding: 1rem;
   margin: 1rem 0.5rem;
   color: rgb(var(--color-1));

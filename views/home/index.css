@@ -1,4 +1,4 @@
-@import "../../components/base/";
+@import '../../components/base/';
 
 /* @define Home */
 .Home {
@@ -57,8 +57,6 @@
 }
 
 .Home-main p a {
-  text-decoration: none;
-  border-bottom: var(--Form-border-width) solid;
   color: rgb(var(--color-2));
 }
 
@@ -116,6 +114,7 @@
   border: var(--Form-border-width) solid rgb(var(--color-2));
   background: rgb(var(--color-2));
   text-transform: uppercase;
+  text-decoration: none;
   text-align: center;
   user-select: none;
   line-height: 0.9;
@@ -139,9 +138,7 @@
 
 .Home-menu {
   font-size: var(--Form-font-size-interface);
-  text-decoration: none;
   line-height: 1;
-  border-bottom: var(--Form-border-width) solid;
   display: inline-block;
   margin: -0.6rem 0 0 0;
   text-transform: uppercase;

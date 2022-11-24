@@ -3,7 +3,7 @@ var { i18n } = require('../../components/base')
 var Intro = require('../../components/intro')
 var Countdown = require('../../components/countdown')
 
-var DEADLINE = new Date('2022-07-01')
+var DEADLINE = new Date('2023-07-01')
 
 var text = i18n()
 
@@ -22,17 +22,31 @@ function home (state, emit) {
         <div class="Home-main">
           <div class="Home-content">
             <p>Din framtid kan börja på Beckmans Kvällsskola!</p>
-            <p>Ett stipendium till för dig som vill gå någon av de tre kvällskurserna på <a href="https://beckmans.se/kvallsskolan/" target="_blank">Beckmans Kvällsskola</a>. Familjen Robert Weils stiftelse har grundat Designstipendiet för att alla, oavsett bakgrund, ska kunna ha möjlighet att tacka ja om de erbjuds en plats.</p>
+            <p>
+              Ett stipendium till för dig som vill gå någon av de tre
+              kvällskurserna på<span> </span>
+              <a href="https://beckmans.se/kvallsskolan/" target="_blank"
+                >Beckmans Kvällsskola</a
+              >. Familjen Robert Weils stiftelse har grundat Designstipendiet
+              för att alla, oavsett bakgrund, ska kunna ha möjlighet att tacka
+              ja om de erbjuds en plats.
+            </p>
             <nav class="Home-nav">
-              ${DEADLINE > Date.now() ? html`<a href="/ansok" class="Home-apply">Sök Stipendiet</a>` : html`<span style="color: black">Årets ansökning är nu stängd<br /><br /></span>`}
+              ${DEADLINE > Date.now()
+                ? html`<a href="/ansok" class="Home-apply">Sök Stipendiet</a>`
+                : html`<span style="color: black"
+                    >Årets ansökning är nu stängd<br /><br
+                  /></span>`}
               <a href="/info" class="Home-menu">Mer info</a>
             </nav>
           </div>
-          ${DEADLINE > Date.now() ? html`
-            <div class="Home-footer">
-              ${state.cache(Countdown, 'home-timer').render(DEADLINE)}
-            </div>
-          ` : null}
+          ${DEADLINE > Date.now()
+            ? html`
+                <div class="Home-footer">
+                  ${state.cache(Countdown, 'home-timer').render(DEADLINE)}
+                </div>
+              `
+            : null}
         </div>
         <div class="Home-sidebar">
           ${state.cache(Intro, 'homepage-intro').render()}

@@ -1,4 +1,4 @@
-@import "../../components/base/";
+@import '../../components/base/';
 
 /* @define Info */
 .Info {
@@ -67,7 +67,8 @@
   }
 
   .Info-instructions {
-    padding: 5rem var(--Form-space-md) var(--Form-space-md) calc(var(--Form-space-md) + 0.35em);
+    padding: 5rem var(--Form-space-md) var(--Form-space-md)
+      calc(var(--Form-space-md) + 0.35em);
   }
 }
 
@@ -88,8 +89,6 @@
   color: rgb(var(--color-2));
   user-select: none;
   font-size: var(--Form-font-size-interface);
-  text-decoration: none;
-  border-bottom: var(--Form-border-width) solid;
   line-height: 1;
   text-align: center;
   margin: -0.6rem 0 -0.4rem;
@@ -146,10 +145,6 @@
   position: relative;
   list-style: decimal;
   margin-left: 1em;
-}
-
-.Info-step a {
-  border-bottom: var(--Form-border-width) solid;
 }
 
 .Info-footer {
