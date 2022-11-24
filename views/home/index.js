@@ -27,9 +27,10 @@ function home (state, emit) {
               kvällskurserna på<span> </span>
               <a href="https://beckmans.se/kvallsskolan/" target="_blank"
                 >Beckmans Kvällsskola</a
-              >. Familjen Robert Weils stiftelse har grundat Designstipendiet
-              för att alla, oavsett bakgrund, ska kunna ha möjlighet att tacka
-              ja om de erbjuds en plats.
+              >
+              . Familjen Robert Weils stiftelse har grundat Designstipendiet för
+              att alla, oavsett bakgrund, ska kunna ha möjlighet att tacka ja om
+              de erbjuds en plats.
             </p>
             <nav class="Home-nav">
               ${DEADLINE > Date.now()
