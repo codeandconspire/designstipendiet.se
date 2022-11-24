@@ -1,18 +1,18 @@
-var html = require('choo/html');
-var { i18n } = require('../../components/base');
+var html = require('choo/html')
+var { i18n } = require('../../components/base')
 
-var text = i18n();
+var text = i18n()
 
-module.exports = home;
+module.exports = home
 
-var DEADLINE = new Date('2023-07-01');
+var DEADLINE = new Date('2023-07-01')
 
-function home(state, emit) {
+function home (state, emit) {
   emit('meta', {
     title: text`SITE_NAME`,
     description: text`SITE_DESCRIPTION`,
-    'og:image': '/share-image.png',
-  });
+    'og:image': '/share-image.png'
+  })
 
   return html`
     <body>
@@ -52,12 +52,7 @@ function home(state, emit) {
             ? html`
                 <ol class="Info-instructions">
                   <li class="Info-step">
-                    Sök till Kvällsskolan på
-                    <span> </span>
-                    <a
-                      href="https://beckmans.se/studera/forberedande-utbildning-kvallsskolan/"
-                      >beckmans.se</a
-                    >.
+                    Sök till Kvällsskolan på <a href="https://beckmans.se/studera/forberedande-utbildning-kvallsskolan/">beckmans.se</a>.
                   </li>
                   <li class="Info-step">
                     Sök sen <a href="/ansok">Designstipendiet</a>.
@@ -80,5 +75,5 @@ function home(state, emit) {
         </div>
       </main>
     </body>
-  `;
+  `
 }

@@ -1,5 +1,5 @@
-var html = require('choo/html');
-var { i18n, className } = require('../../components/base');
+var html = require('choo/html')
+var { i18n, className } = require('../../components/base')
 var questions = [
   require('../../components/has-applied'),
   require('../../components/pick-course'),
@@ -9,55 +9,55 @@ var questions = [
   require('../../components/prior-studies'),
   require('../../components/age'),
   require('../../components/about-you'),
-  require('../../components/contact'),
-];
+  require('../../components/contact')
+]
 
-var text = i18n();
+var text = i18n()
 
-module.exports = form;
+module.exports = form
 
-function form(state, emit) {
+function form (state, emit) {
   emit('meta', {
     title: text`SITE_NAME`,
     description: text`SITE_DESCRIPTION`,
-    'og:image': '/share-image.png',
-  });
+    'og:image': '/share-image.png'
+  })
 
   var all = questions.map(function (Component, index) {
-    return state.cache(Component, `forum-question-${index}`);
-  });
-  var current = all[state.step];
-  var next = all[state.next];
+    return state.cache(Component, `forum-question-${index}`)
+  })
+  var current = all[state.step]
+  var next = all[state.next]
 
-  var hasWindow = typeof window !== 'undefined';
-  var query = serialize(state.answers);
-  var isSummary = state.step === questions.length;
+  var hasWindow = typeof window !== 'undefined'
+  var query = serialize(state.answers)
+  var isSummary = state.step === questions.length
   var isValid = isSummary
     ? all.reduce(function (valid, component) {
-        return valid && component.verify();
-      }, true)
-    : current.verify();
+      return valid && component.verify()
+    }, true)
+    : current.verify()
 
   var answers = all
     .filter((component, index) => index !== state.step)
     .reduce(function (pairs, component) {
-      var props = component.serialize();
-      var keys = Object.keys(props);
+      var props = component.serialize()
+      var keys = Object.keys(props)
       for (let i = 0, len = keys.length; i < len; i++) {
-        let key = keys[i];
+        let key = keys[i]
         if (Array.isArray(props[key])) {
           for (let i = 0, len = props[key].length; i < len; i++) {
-            pairs.push([key, props[key][i]]);
+            pairs.push([key, props[key][i]])
           }
         } else {
-          pairs.push([key, props[key]]);
+          pairs.push([key, props[key]])
           if (key === 'entry.1828762114.other_option_response') {
-            pairs.push(['entry.1828762114', '__other_option__']);
+            pairs.push(['entry.1828762114', '__other_option__'])
           }
         }
       }
-      return pairs;
-    }, []);
+      return pairs
+    }, [])
 
   var attrs = {
     class: className('Form', {
@@ -65,15 +65,15 @@ function form(state, emit) {
       [`Form--${state.next - state.step === 1 ? 'forward' : 'backward'}`]:
         state.next != null,
       'Form--summary': isSummary,
-      'is-valid': !hasWindow || isValid,
+      'is-valid': !hasWindow || isValid
     }),
     action: state.href,
     method: isSummary ? 'POST' : 'GET',
-    onsubmit: onsubmit,
-  };
+    onsubmit: onsubmit
+  }
 
   if (state.next != null) {
-    attrs.style = `--Form-direction: ${state.next - state.step};`;
+    attrs.style = `--Form-direction: ${state.next - state.step};`
   }
 
   return html`
@@ -130,15 +130,15 @@ function form(state, emit) {
                       <div class="Form-summary">
                         <dl class="Form-dl">
                           ${all.reduce((list, question) => {
-                            var value = question.value();
-                            if (!value) return list;
+                            var value = question.value()
+                            if (!value) return list
                             list.push(
                               html`<dt class="Form-title">
                                 ${question.title()}
                               </dt>`,
                               html`<dd class="Form-value">${value}</dd>`
-                            );
-                            return list;
+                            )
+                            return list
                           }, [])}
                         </dl>
                         <div class="Form-restart">
@@ -256,54 +256,54 @@ function form(state, emit) {
           : html` <div class="Form-footer"></div> `}
       </form>
     </body>
-  `;
+  `
 
-  function reset(event) {
-    emit('form:abort');
-    event.preventDefault();
+  function reset (event) {
+    emit('form:abort')
+    event.preventDefault()
   }
 
-  function onclick(step) {
+  function onclick (step) {
     return function (event) {
-      goto(step);
-      event.preventDefault();
-    };
-  }
-
-  function onchange(name, value) {
-    emit('form:save', name, value);
-  }
-
-  function onsubmit(event) {
-    if (!state.loading) {
-      if (isSummary) emit('form:submit');
-      else goto(state.step + 1);
+      goto(step)
+      event.preventDefault()
     }
-    event.preventDefault();
   }
 
-  function goto(step) {
-    var diff = state.step - step;
+  function onchange (name, value) {
+    emit('form:save', name, value)
+  }
+
+  function onsubmit (event) {
+    if (!state.loading) {
+      if (isSummary) emit('form:submit')
+      else goto(state.step + 1)
+    }
+    event.preventDefault()
+  }
+
+  function goto (step) {
+    var diff = state.step - step
     if (Math.abs(diff) === 1) {
-      if (diff === -1) emit('form:next');
-      else emit('form:prev');
-      let tools = document.querySelector('.js-tools');
-      tools.addEventListener('animationend', function onanimationend(event) {
-        if (event.target !== tools) return;
-        tools.removeEventListener('animationend', onanimationend);
-        emit('form:goto', step);
-      });
+      if (diff === -1) emit('form:next')
+      else emit('form:prev')
+      let tools = document.querySelector('.js-tools')
+      tools.addEventListener('animationend', function onanimationend (event) {
+        if (event.target !== tools) return
+        tools.removeEventListener('animationend', onanimationend)
+        emit('form:goto', step)
+      })
     } else {
-      emit('form:goto', step);
+      emit('form:goto', step)
     }
   }
 }
 
 // serialize object to query string
 // obj -> str
-function serialize(obj) {
+function serialize (obj) {
   return Object.keys(obj).reduce(function (str, key) {
-    str += `${str ? '&' : '?'}${key}=${encodeURIComponent(obj[key])}`;
-    return str;
-  }, '');
+    str += `${str ? '&' : '?'}${key}=${encodeURIComponent(obj[key])}`
+    return str
+  }, '')
 }

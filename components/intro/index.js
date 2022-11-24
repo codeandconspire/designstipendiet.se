@@ -1,48 +1,48 @@
-var html = require('choo/html');
-var Component = require('choo/component');
-var { vw, vh } = require('../base');
+var html = require('choo/html')
+var Component = require('choo/component')
+var { vw, vh } = require('../base')
 
-var MOUNT = Date.now();
+var MOUNT = Date.now()
 
 module.exports = class Intro extends Component {
-  update() {
-    return false;
+  update () {
+    return false
   }
 
-  load(el) {
-    if (vw() > 1000) return;
+  load (el) {
+    if (vw() > 1000) return
 
-    document.documentElement.style.setProperty('--vh', vh() + 'px');
+    document.documentElement.style.setProperty('--vh', vh() + 'px')
 
-    var performance = window.performance;
-    var last = el.querySelector('.js-last');
-    var init = performance ? performance.timing.domInteractive : MOUNT;
+    var performance = window.performance
+    var last = el.querySelector('.js-last')
+    var init = performance ? performance.timing.domInteractive : MOUNT
 
     // fallback in case animation is cancelled
-    var timeout = setTimeout(detach, 6000 - (Date.now() - init));
+    var timeout = setTimeout(detach, 6000 - (Date.now() - init))
 
-    last.addEventListener('animationend', onanimationend);
-    window.addEventListener('wheel', preventScroll, { passive: false });
-    window.addEventListener('touchmove', preventScroll, { passive: false });
+    last.addEventListener('animationend', onanimationend)
+    window.addEventListener('wheel', preventScroll, { passive: false })
+    window.addEventListener('touchmove', preventScroll, { passive: false })
 
-    function onanimationend(event) {
-      if (event.target !== last) return;
-      clearTimeout(timeout);
-      detach();
+    function onanimationend (event) {
+      if (event.target !== last) return
+      clearTimeout(timeout)
+      detach()
     }
 
-    function detach() {
-      window.removeEventListener('wheel', preventScroll);
-      window.removeEventListener('touchmove', preventScroll);
-      last.removeEventListener('animationend', onanimationend);
+    function detach () {
+      window.removeEventListener('wheel', preventScroll)
+      window.removeEventListener('touchmove', preventScroll)
+      last.removeEventListener('animationend', onanimationend)
     }
 
-    function preventScroll(event) {
-      event.preventDefault();
+    function preventScroll (event) {
+      event.preventDefault()
     }
   }
 
-  createElement() {
+  createElement () {
     return html`
       <div class="Intro" id="intro">
         <div class="Intro-1">
@@ -118,6 +118,6 @@ module.exports = class Intro extends Component {
           </div>
         </div>
       </div>
-    `;
+    `
   }
-};
+}

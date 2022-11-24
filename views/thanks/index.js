@@ -1,10 +1,8 @@
-var html = require('choo/html');
+var html = require('choo/html')
 
-module.exports = thanks;
+module.exports = thanks
 
-function thanks(state, emit) {
-  var contact = state.contact ? state.contact.toLowerCase() : '?';
-
+function thanks (state, emit) {
   return html`
     <body>
       <main class="Thanks">
@@ -18,5 +16,5 @@ function thanks(state, emit) {
         </div>
       </main>
     </body>
-  `;
+  `
 }
