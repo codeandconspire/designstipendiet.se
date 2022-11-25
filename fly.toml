@@ -1,10 +1,11 @@
-# fly.toml file generated for designstipendiet on 2022-11-25T10:18:29+01:00
+# fly.toml file generated for designstipendet on 2022-11-25T11:56:08+01:00
 
-app = "designstipendiet"
+app = "designstipendet"
 kill_signal = "SIGINT"
 kill_timeout = 5
 
 [env]
+  PORT = "8080"
 
 [experimental]
   allowed_public_ports = []
