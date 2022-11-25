@@ -1,6 +1,5 @@
 if (!process.env.HEROKU) require('dotenv/config')
 
-var got = require('got')
 var jalla = require('jalla')
 var body = require('koa-body')
 var dedent = require('dedent')
@@ -24,7 +23,7 @@ app.use(
     compose([
       body({ includeUnparsed: true }),
       async function (ctx, next) {
-        await got(ENDPOINT, {
+        await fetch(ENDPOINT, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
