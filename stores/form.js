@@ -82,8 +82,11 @@ function form (state, emitter, app) {
         'Accept': 'application/json'
       }
     }).then(function (res) {
-      console.log(res)
-      if (!res.ok) return res.text().then((err) => Promise.reject(Error(err)))
+      if (!res.ok) {
+        return res.text().then(function (err) {
+          Promise.reject(Error(err))
+        })
+      }
       window.localStorage.removeItem(STORAGE_ID)
       state.step = 0
       state.loading = false

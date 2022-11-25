@@ -32,8 +32,6 @@ app.use(
           body: ctx.request.body[unparsed]
         })
 
-        console.log(ctx.request.body[unparsed])
-
         var fields = ctx.request.body.entry
 
         // send an confirmation email
