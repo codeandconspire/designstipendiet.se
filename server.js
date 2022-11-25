@@ -1,4 +1,4 @@
-if (!process.env.FLY) require('dotenv/config')
+if (!process.env.HEROKU) require('dotenv/config')
 
 var got = require('got')
 var jalla = require('jalla')
@@ -14,7 +14,7 @@ var ENDPOINT =
   'https://docs.google.com/forms/d/e/1FAIpQLSdM-T0zn8tIhIy4s4O9D61mGqaezMUvg2Io-dwkWLQe9dKvbg/formResponse'
 var app = jalla('index.js', {
   sw: 'sw.js',
-  serve: Boolean(process.env.FLY)
+  serve: Boolean(process.env.HEROKU)
 })
 
 // proxy application form for Google Forms
@@ -73,7 +73,7 @@ app.use(function (ctx, next) {
 })
 
 app.listen(process.env.PORT || 8080, function () {
-  if (process.env.FLY && app.env === 'production') {
+  if (process.env.HEROKU && app.env === 'production') {
     purge(['/sw.js'], function (err) {
       if (err) app.emit('error', err)
     })
