@@ -85,14 +85,12 @@ function form (state, emit) {
         )}
 
         <div class="Form-statusbar">
-          <span class="Form-step"
-            >${state.step < questions.length
+          <span class="Form-step">
+            ${state.step < questions.length
               ? `${state.step + 1}/${questions.length}`
-              : null}</span
-          >
-          <a href="/" class="Form-cancel" onclick=${reset}
-            ><span>Avbryt</span></a
-          >
+              : null}
+          </span>
+          <a href="/" class="Form-cancel" onclick=${reset}><span>Avbryt</span></a>
         </div>
 
         <div class="Form-main">
@@ -110,9 +108,7 @@ function form (state, emit) {
                       <p>
                         Om inte det fungerar. Kopiera all text här, med frågorna
                         och svaren, och maila det till <span> </span>
-                        <a href="mailto:ls@weilfoundation.se"
-                          >ls@weilfoundation.se</a
-                        >
+                        <a href="mailto:ls@weilfoundation.se">ls@weilfoundation.se</a>
                       </p>
                       ${process.env.NODE_ENV === 'development'
                         ? html`<pre>${state.error.stack}</pre>`
@@ -143,12 +139,7 @@ function form (state, emit) {
                         </dl>
                         <div class="Form-restart">
                           Blev något fel?<br />
-                          <a
-                            class="Form-link"
-                            href="${state.href}${query}${query ? '&' : '?'}q=0"
-                            onclick=${onclick(0)}
-                            >Gå tillbaka och ändra</a
-                          >
+                          <a class="Form-link" href="${state.href}${query}${query ? '&' : '?'}q=0" onclick=${onclick(0)}>Gå tillbaka och ändra</a>
                         </div>
                       </div>
                     `}
@@ -160,23 +151,8 @@ function form (state, emit) {
                 <div class="Form-nav Form-nav--placeholder">
                   ${next
                     ? html`
-                        <button
-                          type="submit"
-                          name="q"
-                          value="${state.step + 1}"
-                          class="Form-action Form-action--next ${!next.verify()
-                            ? 'is-disabled'
-                            : ''}"
-                          disabled=${!next.verify()}
-                          label="${state.next === questions.length - 1
-                            ? 'Granska'
-                            : 'Nästa fråga'}"
-                        >
-                          <span class="Form-button"
-                            >${state.next === questions.length - 1
-                              ? 'Granska'
-                              : 'Nästa fråga'}</span
-                          >
+                        <button type="submit" name="q" value="${state.step + 1}" class="Form-action Form-action--next ${!next.verify() ? 'is-disabled' : ''}" disabled=${!next.verify()} label="${state.next === questions.length - 1 ? 'Granska' : 'Nästa fråga'}">
+                          <span class="Form-button">${state.next === questions.length - 1 ? 'Granska' : 'Nästa fråga'}</span>
                         </button>
                       `
                     : null}
@@ -189,71 +165,31 @@ function form (state, emit) {
         <div class="Form-nav">
           ${!isSummary && state.step > 0
             ? html`
-                <a
-                  href="${state.href}${query}${query
-                    ? '&'
-                    : '?'}q=${state.step - 1}"
-                  class="Form-action Form-action--prev ${state.step === 0
-                    ? 'is-disabled'
-                    : ''}"
-                  label="Förra frågan"
-                  onclick=${onclick(state.step - 1)}
-                >
+                <a href="${state.href}${query}${query ? '&' : '?'}q=${state.step - 1}" class="Form-action Form-action--prev ${state.step === 0 ? 'is-disabled' : ''}" label="Förra frågan" onclick=${onclick(state.step - 1)}>
                   <span class="Form-button">Förra frågan</span>
                 </a>
               `
             : null}
           ${isSummary
             ? html`
-                <button
-                  type="submit"
-                  class="Form-action Form-action--submit ${(hasWindow &&
-                    !isValid) ||
-                  state.loading
-                    ? 'is-disabled'
-                    : ''}"
-                  disabled=${(hasWindow && !isValid) || state.loading}
-                  label="Skicka ansökan"
-                >
+                <button type="submit" class="Form-action Form-action--submit ${(hasWindow && !isValid) || state.loading ? 'is-disabled' : ''}" disabled=${(hasWindow && !isValid) || state.loading} label="Skicka ansökan">
                   <span class="Form-button">Skicka ansökan</span>
                 </button>
               `
             : html`
-                <button
-                  type="submit"
-                  name="q"
-                  value="${state.step + 1}"
-                  class="Form-action Form-action--next ${hasWindow && !isValid
-                    ? 'is-disabled'
-                    : ''}"
-                  disabled=${hasWindow && !isValid}
-                  label="${state.step === questions.length - 1
-                    ? 'Granska'
-                    : 'Nästa fråga'}"
-                >
-                  <span class="Form-button"
-                    >${state.step === questions.length - 1
-                      ? 'Granska'
-                      : 'Nästa fråga'}</span
-                  >
+                <button type="submit" name="q" value="${state.step + 1}" class="Form-action Form-action--next ${hasWindow && !isValid ? 'is-disabled' : ''}" disabled=${hasWindow && !isValid} label="${state.step === questions.length - 1 ? 'Granska' : 'Nästa fråga'}">
+                  <span class="Form-button">${state.step === questions.length - 1 ? 'Granska' : 'Nästa fråga'}</span>
                 </button>
               `}
         </div>
 
         ${state.step > 0
           ? html`
-              <button
-                class="Form-footer"
-                type="submit"
-                name="q"
-                value="${state.step - 1}"
-                disabled=${state.loading}
-                onclick=${onclick(state.step - 1)}
-              >
+              <button class="Form-footer" type="submit" name="q" value="${state.step - 1}" disabled=${state.loading} onclick=${onclick(state.step - 1)}>
                 Förra frågan
               </button>
             `
-          : html` <div class="Form-footer"></div> `}
+          : html`<div class="Form-footer"></div>`}
       </form>
     </body>
   `
