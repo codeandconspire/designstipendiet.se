@@ -5,7 +5,7 @@ var text = i18n()
 
 module.exports = home
 
-var DEADLINE = new Date('2023-07-01')
+const DEADLINE = new Date('2023-06-24')
 
 function home (state, emit) {
   emit('meta', {
