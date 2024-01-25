@@ -4,7 +4,7 @@
 
 :root {
   --color-1: 255, 255, 255;
-  --color-2: 23, 128, 239;
+  --color-2: 255, 0, 0;
   --color-3: 0, 0, 0;
   --color-focus: 0, 0, 0;
 
@@ -14,7 +14,7 @@
     'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol';
   --document-font-size: 1rem;
-  --document-line-height: 1.2;
+  --document-line-height: 1.15;
   --document-background: var(--color-1);
   --document-color: var(--color-2);
 
@@ -70,6 +70,9 @@
   -webkit-font-smoothing: antialiased; /* 5 */
   -moz-osx-font-smoothing: grayscale; /* 5 */
   text-rendering: geometricPrecision; /* 6 */
+  letter-spacing: -0.025em;
+  cursor: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' ...") 16 16, default;
+
 }
 
 /**
@@ -135,8 +138,8 @@ strong {
 
 a {
   color: inherit;
-  text-decoration-thickness: var(--Form-border-width);
-  text-underline-offset: 0.15em;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.05em;
   cursor: pointer;
 }
 

@@ -67,7 +67,7 @@ module.exports = class Intro extends Component {
           <h1><span>Design</span><span>stipendiet</span></h1>
         </div>
         <div class="Intro-blocks">
-          <div class="Intro-year"><span>2023</span></div>
+          <div class="Intro-year"><span>2024</span></div>
           <div class="Intro-logo">
             <svg width="364" height="244" viewBox="0 0 364 244">
               <g fill="currentColor" fill-rule="evenodd">
