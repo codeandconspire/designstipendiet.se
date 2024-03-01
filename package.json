@@ -8,6 +8,9 @@
     "start": "node server.js",
     "test": "standard"
   },
+  "engines": {
+    "node": "18.x"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/codeandconspire/designstipendiet.se.git"
