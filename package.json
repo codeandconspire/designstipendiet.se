@@ -52,7 +52,6 @@
     "normalize.css": "^8.0.1",
     "postcss-custom-properties": "^8.0.9",
     "postcss-focus-visible": "^4.0.0",
-    "postcss-url": "^8.0.0",
     "scroll-into-view": "^1.9.5"
   }
 }

@@ -1,4 +1,3 @@
-var url = require('postcss-url')
 var focusVisible = require('postcss-focus-visible')
 var customProperties = require('postcss-custom-properties')
 
@@ -8,10 +7,7 @@ function config (ctx) {
   var plugins = [focusVisible]
 
   if (ctx.env !== 'development') {
-    plugins.push(
-      customProperties,
-      url({ filter: /\.(?:svg)$/, url: 'inline', maxSize: Infinity })
-    )
+    plugins.push(customProperties)
   }
 
   return { plugins }
