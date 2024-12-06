@@ -1,4 +1,4 @@
-@import '../../components/base';
+@import "../../components/base";
 
 /* @define Form */
 :root {
@@ -164,7 +164,7 @@
 
   .Form-footer:focus-visible:not(:empty)::after,
   .Form-footer:active:not(:empty)::after {
-    background-image: url('./prev-white.svg') !important;
+    background-image: url("./prev-white.svg") !important;
   }
 
   :root .Form-action--next:focus-visible:not(:disabled):not(.is-disabled),
@@ -345,13 +345,13 @@
   }
 
   .Form-footer:not(:empty):not(:disabled)::after {
-    content: '';
+    content: "";
     width: var(--Form-space-lg);
     height: var(--Form-space-lg);
     position: absolute;
     bottom: 0;
     left: 0;
-    background-image: url('./prev.svg');
+    background-image: url("./prev.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: var(--Form-space-md);
@@ -396,12 +396,12 @@
 }
 
 .Form-action--prev {
-  background: url('./prev.svg') no-repeat center center;
+  background: url("./prev.svg") no-repeat center center;
   background-size: var(--Form-space-md);
 }
 
 .Form-action:not(.Form-action--submit).is-disabled {
-  background-image: url('./disabled.svg');
+  background-image: url("./disabled.svg");
   background-size: 101% 100%;
   pointer-events: none;
 }
@@ -413,7 +413,7 @@
 
 :root:not([scripting-enabled]) .Form-action--next,
 :root[scripting-enabled] .Form-action--next:not(:disabled) {
-  background-image: url('./next.svg');
+  background-image: url("./next.svg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: var(--Form-space-md);
@@ -428,17 +428,17 @@
 :root .Form-action--prev:focus-visible:not(:disabled):not(.is-disabled),
 :root .Form-action--prev:active:not(:disabled):not(.is-disabled) {
   background-color: rgb(var(--color-2));
-  background-image: url('./prev-white.svg');
+  background-image: url("./prev-white.svg");
 }
 
 :root .Form-action--next:focus-visible:not(:disabled):not(.is-disabled),
 :root .Form-action--next:active:not(:disabled):not(.is-disabled) {
   background-color: rgb(var(--color-2));
-  background-image: url('./next-white.svg');
+  background-image: url("./next-white.svg");
 }
 
 :root[scripting-enabled] .Form-action--submit:disabled::before {
-  content: '';
+  content: "";
   display: inline-block;
   width: var(--Form-space-md);
   height: var(--Form-space-md);
@@ -541,13 +541,13 @@
   :root[scripting-enabled] .Form-action--next:not(:disabled)::after,
   :root:not([scripting-enabled]) .Form-action--submit::after,
   :root[scripting-enabled] .Form-action--submit:not(:disabled)::after {
-    content: '';
+    content: "";
     width: var(--Form-space-lg);
     height: var(--Form-space-lg);
     position: absolute;
     bottom: 0;
     left: 0;
-    background-image: url('./next.svg');
+    background-image: url("./next.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: var(--Form-space-md);
@@ -564,7 +564,7 @@
   :root
     .Form-action--next:focus-visible:not(:disabled):not(.is-disabled)::after,
   :root .Form-action--next:active:not(:disabled):not(.is-disabled)::after {
-    background-image: url('./next-white.svg');
+    background-image: url("./next-white.svg");
   }
 
   :root .Form-action--next:focus-visible:not(:disabled):not(.is-disabled),
@@ -593,7 +593,8 @@
 .Form-question {
   padding: var(--Form-padding) var(--Form-padding) var(--Form-space-md);
   font-size: var(--Form-font-size-title);
-  line-height: 1.07;
+  line-height: 1.04;
+  text-wrap: balance;
 }
 
 .Form-question small {
@@ -643,6 +644,14 @@
 .Form-title {
   padding: 0 var(--Form-padding);
   margin-top: var(--Form-space-sm);
+}
+
+dt.Form-title {
+  margin-top: 1rem;
+}
+
+dt.Form-title:first-child {
+  margin-top: 0.2rem;
 }
 
 .Form-value {

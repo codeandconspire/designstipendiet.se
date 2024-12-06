@@ -1,4 +1,4 @@
-@import '../../components/base/';
+@import "../../components/base/";
 
 /* @define Home */
 .Home {
@@ -50,6 +50,7 @@
 .Home-main p {
   margin: 0.5em 0;
   max-width: 30em;
+  text-wrap: balance;
 }
 
 .Home-main p:first-child {

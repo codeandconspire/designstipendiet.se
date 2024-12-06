@@ -1,18 +1,18 @@
-var html = require('choo/html')
-var { i18n } = require('../../components/base')
+var html = require("choo/html");
+var { i18n } = require("../../components/base");
 
-var text = i18n()
+var text = i18n();
 
-module.exports = home
+module.exports = home;
 
-const DEADLINE = new Date('2024-06-22')
+const DEADLINE = new Date("2025-06-22");
 
-function home (state, emit) {
-  emit('meta', {
+function home(state, emit) {
+  emit("meta", {
     title: text`SITE_NAME`,
     description: text`SITE_DESCRIPTION`,
-    'og:image': '/share-image.png'
-  })
+    "og:image": "/share-image.png",
+  });
 
   return html`
     <body>
@@ -52,10 +52,17 @@ function home (state, emit) {
             ? html`
                 <ol class="Info-instructions">
                   <li class="Info-step">
-                    Sök till Kvällsskolan på <a href="https://beckmans.se/studera/forberedande-utbildning-kvallsskolan/">beckmans.se</a>.
+                    Sök till Kvällsskolan på
+                    <span>
+                      <a
+                        href="https://beckmans.se/studera/forberedande-utbildning-kvallsskolan/"
+                        >beckmans.se</a
+                      ></span
+                    >.
                   </li>
                   <li class="Info-step">
-                    Sök sen <a href="/ansok">Designstipendiet</a>.
+                    Sök sen <span> <a href="/ansok">Designstipendiet</a></span
+                    >.
                   </li>
                   <li class="Info-step">
                     Blir du utvald så bekostar stipendiet utbildningen. Du får
@@ -63,7 +70,7 @@ function home (state, emit) {
                   </li>
                 </ol>
                 <div class="Info-footer">
-                  Sista ansökningsdag 22 juni 2024 och besked om stipendiet ges
+                  Sista ansökningsdag 22 juni 2025 och besked om stipendiet ges
                   kort där efter.
                 </div>
               `
@@ -75,5 +82,5 @@ function home (state, emit) {
         </div>
       </main>
     </body>
-  `
+  `;
 }

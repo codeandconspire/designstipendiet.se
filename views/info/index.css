@@ -1,4 +1,4 @@
-@import '../../components/base/';
+@import "../../components/base/";
 
 /* @define Info */
 .Info {
@@ -44,12 +44,14 @@
 .Info-content {
   padding: 0.9rem var(--Form-padding) 2rem;
   position: relative;
+  text-wrap: pretty;
 }
 
 .Info-footer,
 .Info-instructions {
   padding: 2rem var(--Form-padding);
   width: 100%;
+  text-wrap: balance;
 }
 
 .Info-instructions {
@@ -144,7 +146,11 @@
 .Info-step {
   position: relative;
   list-style: decimal;
-  margin-left: 1em;
+  margin-left: 0.75em;
+}
+
+.Info-step a:hover {
+  color: rgb(var(--color-3));
 }
 
 .Info-footer {
