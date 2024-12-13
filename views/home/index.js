@@ -25,7 +25,9 @@ function home(state, emit) {
             <p>
               Ett stipendium till för dig som vill gå någon av de tre
               kvällskurserna på
-              <a href="https://beckmans.se/kvallsskolan/" target="_blank">Beckmans Kvällsskola </a>.
+              <span>
+                <a href="https://beckmans.se/kvallsskolan/" target="_blank">Beckmans Kvällsskola </a>.
+              </span>
               <span>
                 <a href="https://weilfoundation.se/" target="_blank">Familjen Robert Weils stiftelse</a>
               </span>
