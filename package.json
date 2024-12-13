@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/codeandconspire/designstipendiet.se#readme",
   "devDependencies": {
+    "@flydotio/dockerfile": "^0.5.9",
     "choo-devtools": "^2.5.1",
     "standard": "^10.0.3"
   },

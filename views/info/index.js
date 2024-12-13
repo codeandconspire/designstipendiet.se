@@ -5,7 +5,7 @@ var text = i18n();
 
 module.exports = home;
 
-const DEADLINE = new Date("2025-06-22");
+const DEADLINE = new Date("2025-06-02");
 
 function home(state, emit) {
   emit("meta", {
@@ -54,15 +54,11 @@ function home(state, emit) {
                   <li class="Info-step">
                     Sök till Kvällsskolan på
                     <span>
-                      <a
-                        href="https://beckmans.se/studera/forberedande-utbildning-kvallsskolan/"
-                        >beckmans.se</a
-                      ></span
-                    >.
+                      <a href="https://beckmans.se/studera/forberedande-utbildning-kvallsskolan/">beckmans.se</a>
+                    </span>.
                   </li>
                   <li class="Info-step">
-                    Sök sen <span> <a href="/ansok">Designstipendiet</a></span
-                    >.
+                    Sök sen <span> <a href="/ansok">Designstipendiet</a></span>.
                   </li>
                   <li class="Info-step">
                     Blir du utvald så bekostar stipendiet utbildningen. Du får
@@ -70,7 +66,7 @@ function home(state, emit) {
                   </li>
                 </ol>
                 <div class="Info-footer">
-                  Sista ansökningsdag 22 juni 2025 och besked om stipendiet ges
+                  Sista ansökningsdag 1 juni 2025 och besked om stipendiet ges
                   kort där efter.
                 </div>
               `
