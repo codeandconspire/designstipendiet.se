@@ -5,6 +5,9 @@
 
 app = 'design'
 primary_region = 'arn'
+auto_stop_machines = 'off'
+auto_start_machines = false
+min_machines_running = 1
 
 [env]
   NODE_ENV = "production"
