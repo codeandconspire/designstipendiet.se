@@ -19,6 +19,7 @@ app.route('/', require('./views/home'))
 app.route('/info', require('./views/info'))
 app.route('/ansok', require('./views/form'))
 app.route('/tack', require('./views/thanks'))
+app.route('/resultat-secret-page-a7ol67n20q1h35bf9n', require('./views/results'))
 
 try {
   module.exports = app.mount('body')

@@ -6,6 +6,7 @@ var questions = [
   require('../../components/how-find'),
   require('../../components/opportunities'),
   require('../../components/why-you'),
+  require('../../components/reflect-on-topic'),
   require('../../components/prior-studies'),
   require('../../components/age'),
   require('../../components/about-you'),

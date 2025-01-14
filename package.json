@@ -41,6 +41,7 @@
     "choo": "^6.13.3",
     "choo-meta": "^1.0.4",
     "choo-service-worker": "^2.4.0",
+    "csvtojson": "^2.0.10",
     "date-fns": "^1.30.1",
     "dotenv": "^6.2.0",
     "focus-visible": "^4.1.5",
