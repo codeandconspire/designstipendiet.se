@@ -6,6 +6,7 @@
   overflow: auto;
   height: 100%;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.35;
 }
 
 .Results {
@@ -44,6 +45,11 @@
   background: #e4e4e4;
   padding: 0.8rem 1rem;
   border-radius: 0.25rem;
+}
+
+.Results :focus-visible {
+  background: transparent;
+  color: inherit;
 }
 
 .Results summary + div {

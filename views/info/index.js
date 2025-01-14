@@ -9,7 +9,7 @@ const DEADLINE = new Date("2025-06-02");
 
 function home(state, emit) {
   emit("meta", {
-    title: text`SITE_NAME`,
+    title: 'Designstipendiet – Information',
     description: text`SITE_DESCRIPTION`,
     "og:image": "/share-image.png",
   });

@@ -4,9 +4,16 @@ const csvtojson = require("csvtojson");
 module.exports = results;
 
 function results(state, emit) {
-  // If submissions not yet fetched, do it once
-  if (!state.submissions) {
-    fetchSubmissions();
+  emit('meta', {
+    title: 'Designstipendiet – Resultat'
+  })
+
+  var hasWindow = typeof window !== 'undefined'
+
+  if (hasWindow) {
+    if (!state.submissions) {
+      fetchSubmissions();
+    }
   }
 
   async function fetchSubmissions() {
@@ -58,8 +65,6 @@ function results(state, emit) {
       acc[year].push(current);
       return acc;
     }, {});
-
-    console.log(grouped);
 
     return html`
       <div>

@@ -19,7 +19,7 @@ module.exports = form
 
 function form (state, emit) {
   emit('meta', {
-    title: text`SITE_NAME`,
+    title: 'Designstipendiet – Ansök',
     description: text`SITE_DESCRIPTION`,
     'og:image': '/share-image.png'
   })

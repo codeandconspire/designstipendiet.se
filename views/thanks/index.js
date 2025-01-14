@@ -3,6 +3,10 @@ var html = require("choo/html");
 module.exports = thanks;
 
 function thanks(state, emit) {
+  emit('meta', {
+    title: 'Designstipendiet – Klart!'
+  })
+
   return html`
     <body>
       <main class="Thanks">
