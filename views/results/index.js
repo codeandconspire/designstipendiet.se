@@ -65,7 +65,7 @@ function results(state, emit) {
       <div>
         <h1>2025</h1>
         <ul>
-          ${grouped["2025"].map(function (item) {
+          ${grouped["2025"].slice().reverse().map(function (item) {
             return html`
               <li>
                 <span class="title"><strong>${item["Namn"]}</strong>, ${getAge(item["Födelsedag"])}, ${item["field19"]}</span>
