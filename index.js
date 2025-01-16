@@ -7,13 +7,13 @@ app.state.origin = process.env.NODE_ENV === 'development'
 
 if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {
   app.use(require('choo-devtools')())
-  app.use(require('choo-service-worker/clear')())
+  
 }
 
+app.use(require('choo-service-worker/clear')())
 app.use(require('./stores/reset'))
 app.use(require('./stores/form'))
 app.use(require('choo-meta')({ origin: app.state.origin }))
-app.use(require('choo-service-worker')('/sw.js'))
 
 app.route('/', require('./views/home'))
 app.route('/info', require('./views/info'))
