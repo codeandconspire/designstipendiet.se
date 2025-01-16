@@ -7,7 +7,7 @@ app = 'design'
 primary_region = 'arn'
 auto_stop_machines = 'off'
 auto_start_machines = false
-min_machines_running = 2
+min_machines_running = 1
 
 [env]
   NODE_ENV = "production"
@@ -19,7 +19,7 @@ min_machines_running = 2
   force_https = true
   auto_stop_machines = 'off'
   auto_start_machines = false
-  min_machines_running = 0
+  min_machines_running = 1
   processes = ['app']
 
 [[services.ports]]
