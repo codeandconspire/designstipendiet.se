@@ -1,5 +1,6 @@
 var html = require("choo/html");
-const csvtojson = require("csvtojson");
+var csvtojson = require("csvtojson");
+var regeneratorRuntime = require("regenerator-runtime");
 
 module.exports = results;
 
