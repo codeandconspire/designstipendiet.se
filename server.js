@@ -7,7 +7,6 @@ var compose = require('koa-compose')
 var { get, post } = require('koa-route')
 var unparsed = require('koa-body/unparsed')
 var purge = require('./lib/purge')
-var email = require('./lib/email')
 
 var ENDPOINT =
   'https://docs.google.com/forms/d/e/1FAIpQLSdM-T0zn8tIhIy4s4O9D61mGqaezMUvg2Io-dwkWLQe9dKvbg/formResponse'
@@ -32,9 +31,6 @@ app.use(
         })
 
         var fields = ctx.request.body.entry
-
-        // send an confirmation email
-        await email(fields).catch(console.error)
 
         if (ctx.accepts('html')) {
           ctx.redirect('/tack?contact=' + fields['1183121357'])
