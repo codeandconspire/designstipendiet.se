@@ -21,7 +21,8 @@ function form (state, emit) {
   emit('meta', {
     title: 'Designstipendiet – Ansök',
     description: text`SITE_DESCRIPTION`,
-    'og:image': '/share-image.png'
+    'og:image': 'https://www.designstipendiet.se/share-image.png',
+    'og:url': 'https://www.designstipendiet.se/ansok',
   })
 
   var all = questions.map(function (Component, index) {

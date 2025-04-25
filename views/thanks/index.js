@@ -4,7 +4,9 @@ module.exports = thanks;
 
 function thanks(state, emit) {
   emit('meta', {
-    title: 'Designstipendiet – Klart!'
+    title: 'Designstipendiet – Klart!',
+    'og:image': 'https://www.designstipendiet.se/share-image.png',
+    'og:url': 'https://www.designstipendiet.se/tack',
   })
 
   return html`

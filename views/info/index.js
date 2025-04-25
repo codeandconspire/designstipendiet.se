@@ -11,7 +11,8 @@ function home(state, emit) {
   emit("meta", {
     title: 'Designstipendiet – Information',
     description: text`SITE_DESCRIPTION`,
-    "og:image": "/share-image.png",
+    "og:image": "https://www.designstipendiet.se/share-image.png",
+    "og:url": "https://www.designstipendiet.se/info",
   });
 
   return html`
