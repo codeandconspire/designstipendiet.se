@@ -7,7 +7,10 @@ module.exports = class HasApplied extends Component {
   constructor (id, state, emit) {
     super(id)
     var value = state.answers[NAME]
-    this.local = state.components[id] = { id, value }
+    this.local = state.components[id] = { 
+      id, 
+      value: value === 'Ja' || value === 'Nej' ? value : null 
+    }
   }
 
   verify () {
@@ -15,7 +18,7 @@ module.exports = class HasApplied extends Component {
   }
 
   serialize () {
-    return { [NAME]: this.local.value }
+    return { [NAME]: this.local.value || '' }
   }
 
   title () {
@@ -23,7 +26,7 @@ module.exports = class HasApplied extends Component {
   }
 
   value () {
-    return null
+    return this.local.value ? html`<p>${this.local.value}</p>` : null
   }
 
   update (callback, opts = {}) {
@@ -59,6 +62,7 @@ module.exports = class HasApplied extends Component {
 
     function onchange (event) {
       var target = event.target
+      if (!target || !target.value) return
       self.local.value = target.value
       callback(NAME, target.value)
     }

@@ -16,11 +16,31 @@ function form (state, emitter, app) {
 
   function init () {
     try {
-      var persisted = window.localStorage.getItem(STORAGE_ID)
-      if (persisted) persisted = JSON.parse(persisted)
-    } catch (e) {}
+      if (typeof window !== 'undefined') {  
+        var persisted = window.localStorage.getItem(STORAGE_ID)
+        if (persisted) {
+          try {
+            persisted = JSON.parse(persisted)
+            // Validate that persisted is an object
+            if (!persisted || typeof persisted !== 'object') {
+              persisted = {}
+            }
+          } catch (e) {
+            console.error('Failed to parse localStorage data:', e)
+            persisted = {}
+          }
+        } else {
+          persisted = {}
+        }
+      } else {
+        persisted = {}
+      }
+    } catch (e) {
+      console.error('Failed to access localStorage:', e)
+      persisted = {}
+    }
 
-    var queried = Object.keys(state.query)
+    var queried = Object.keys(state.query || {})
       .filter((key) => key !== 'q')
       .reduce(function (obj, key) {
         var val = state.query[key]
@@ -39,7 +59,7 @@ function form (state, emitter, app) {
       'entry.695845852_day': 1,
       'entry.695845852_year': 1990
     }, persisted, queried)
-    state.contact = state.query.contact
+    state.contact = state.query.contact || null
   }
 
   emitter.on('form:abort', function () {
@@ -48,9 +68,18 @@ function form (state, emitter, app) {
   })
 
   emitter.on('form:save', function (name, value) {
-    if (value) state.answers[name] = value
-    else delete state.answers[name]
-    window.localStorage.setItem(STORAGE_ID, JSON.stringify(state.answers))
+    if (!name) return
+    if (value) {
+      state.answers = state.answers || {}
+      state.answers[name] = value
+    } else if (state.answers) {
+      delete state.answers[name]
+    }
+    try {
+      window.localStorage.setItem(STORAGE_ID, JSON.stringify(state.answers || {}))
+    } catch (e) {
+      console.error('Failed to save to localStorage:', e)
+    }
     emitter.emit('render')
   })
 
@@ -59,13 +88,23 @@ function form (state, emitter, app) {
     state.loading = true
     emitter.emit('render')
 
+    if (!state.answers || typeof state.answers !== 'object') {
+      state.error = new Error('Invalid form data')
+      state.loading = false
+      emitter.emit('render')
+      return
+    }
+
     var body = Object.keys(state.answers).reduce(function (query, key) {
+      if (!key) return query
       var value = state.answers[key]
       if (Array.isArray(value)) {
         for (let i = 0, len = value.length; i < len; i++) {
-          query += `&${key}=${encodeURIComponent(value[i])}`
+          if (value[i] != null) {
+            query += `&${key}=${encodeURIComponent(value[i])}`
+          }
         }
-      } else {
+      } else if (value != null) {
         query += `&${key}=${encodeURIComponent(value)}`
         if (key === 'entry.1828762114.other_option_response') {
           query += '&entry.1828762114=__other_option__'
@@ -84,13 +123,17 @@ function form (state, emitter, app) {
     }).then(function (res) {
       if (!res.ok) {
         return res.text().then(function (err) {
-          Promise.reject(Error(err))
+          return Promise.reject(new Error(err || 'Submission failed'))
         })
       }
-      window.localStorage.removeItem(STORAGE_ID)
+      try {
+        window.localStorage.removeItem(STORAGE_ID)
+      } catch (e) {
+        console.error('Failed to clear localStorage:', e)
+      }
       state.step = 0
       state.loading = false
-      state.contact = state.answers['entry.1183121357']
+      state.contact = state.answers['entry.1183121357'] || null
       state.answers = {
         'entry.695845852_month': 1,
         'entry.695845852_day': 1,
@@ -99,26 +142,32 @@ function form (state, emitter, app) {
       emitter.emit('pushState', '/tack')
     }).catch(function (err) {
       state.loading = false
-      state.error = err
+      state.error = err || new Error('Submission failed')
       window.scrollTo(0, 0)
       emitter.emit('render')
     })
   })
 
   emitter.on('form:next', function () {
+    if (typeof state.step !== 'number') state.step = 0
     state.next = state.step + 1
     emitter.emit('render')
   })
 
   emitter.on('form:prev', function () {
-    state.next = state.step - 1
+    if (typeof state.step !== 'number') state.step = 0
+    state.next = Math.max(0, state.step - 1)
     emitter.emit('render')
   })
 
   emitter.on('form:goto', function (step) {
+    if (typeof step !== 'number') return
     state.next = null
     state.step = step
-    if (Object.keys(state.query).length) emitter.emit('pushState', state.href)
-    else emitter.emit('render')
+    if (state.query && Object.keys(state.query).length) {
+      emitter.emit('pushState', state.href)
+    } else {
+      emitter.emit('render')
+    }
   })
 }

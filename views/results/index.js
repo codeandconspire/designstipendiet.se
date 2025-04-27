@@ -41,54 +41,70 @@ function results(state, emit) {
   }
 
   function getAge(dateString) {
-    const [day, month, year] = dateString.split("/");
-    const birthDate = new Date(year, month - 1, day);
-    const now = new Date();
-    let age = now.getFullYear() - birthDate.getFullYear();
-  
-    // If birthday hasn't happened yet this year, subtract 1
-    if (
-      now.getMonth() < birthDate.getMonth() ||
-      (now.getMonth() === birthDate.getMonth() && now.getDate() < birthDate.getDate())
-    ) {
-      age--;
+    if (!dateString) return '';
+    try {
+      const [day, month, year] = dateString.split("/");
+      if (!day || !month || !year) return '';
+      const birthDate = new Date(year, month - 1, day);
+      if (isNaN(birthDate.getTime())) return '';
+      const now = new Date();
+      let age = now.getFullYear() - birthDate.getFullYear();
+    
+      // If birthday hasn't happened yet this year, subtract 1
+      if (
+        now.getMonth() < birthDate.getMonth() ||
+        (now.getMonth() === birthDate.getMonth() && now.getDate() < birthDate.getDate())
+      ) {
+        age--;
+      }
+    
+      return age + " år";
+    } catch (e) {
+      console.error('Error calculating age:', e);
+      return '';
     }
-  
-    return age + " år";
   }
 
   function format(items) {
+    if (!items || !Array.isArray(items)) {
+      return html`<div>No submissions available</div>`
+    }
+
     items.shift();
 
     const grouped = items.reduce((acc, current) => {
+      if (!current || !current.field1) return acc;
       const [day, month, year] = current.field1.split(" ")[0].split("/");
       if (!acc[year]) acc[year] = [];
       acc[year].push(current);
       return acc;
     }, {});
 
+    const submissions2025 = grouped["2025"] || [];
+    
     return html`
       <div>
         <h1>2025</h1>
         <ul>
-          ${grouped["2025"].slice().reverse().map(function (item) {
+          ${submissions2025.slice().reverse().map(function (item) {
+            if (!item) return '';
             return html`
               <li>
-                <span class="title"><strong>${item["Namn"]}</strong>, ${getAge(item["Födelsedag"])}, ${item["field19"]}</span>
-                <div><strong>Ekonomisk förutsättning</strong>: ${item["Ekonomsik förutsättning"]}</div>
-                <div><strong>Kurs</strong>: ${item["Kurs"]}</div>
-                <div><strong>Bidrar med perspektiv</strong>:<br> ${item["Motivering"]}</div>
-                <div><strong>Temat ’Främling överallt’</strong>:<br> ${item["field22"]}</div>
+                <span class="title"><strong>${item["Namn"] || ''}</strong>, ${getAge(item["Födelsedag"] || '')}, ${item["field19"] || ''}</span>
+                <div><strong>Ekonomisk förutsättning</strong>: ${item["Ekonomsik förutsättning"] || ''}</div>
+                <div><strong>Kurs</strong>: ${item["Kurs"] || ''}</div>
+                <div><strong>Bidrar med perspektiv</strong>:<br> ${item["Motivering"] || ''}</div>
+                <div><strong>Temat 'Främling överallt'</strong>:<br> ${item["field22"] || ''}</div>
                 <details>
                   <summary>Detaljer</summary>
-                  <div><strong>Födelsedag</strong>: ${item["Födelsedag"]}</div>
-                  <div><strong>Email</strong>: ${item["field20"]}</div>
-                  <div><strong>Telefon</strong>: ${item["Tel"]}</div>
-                  <div><strong>Adress</strong>: ${item["field17"]}, ${item["field18"]}, ${item["field19"]}</div>
-                  <div><strong>Hittade Beckmans via</strong>: ${item["Hittade till Beckmans via"]}</div>
-                  <div><strong>Hittade Stipendiet via</strong>: ${item["Hittade till oss via"]}</div>
-                  <div><strong>Tidigare studier</strong>: ${item["Tidigare studier"]}</div>
-                  <div><strong>Ansökte den</strong>: ${item["field1"]}</div>
+                  <div><strong>Födelsedag</strong>: ${item["Födelsedag"] || ''}</div>
+                  <div><strong>Email</strong>: ${item["field20"] || ''}</div>
+                  <div><strong>Telefon</strong>: ${item["Tel"] || ''}</div>
+                  <div><strong>Adress</strong>: ${item["field17"] || ''}, ${item["field18"] || ''}, ${item["field19"] || ''}</div>
+                  <div><strong>Hittade Beckmans via</strong>: ${item["Hittade till Beckmans via"] || ''}</div>
+                  <div><strong>Hittade Stipendiet via</strong>: ${item["Hittade till oss via"] || ''}</div>
+                  <div><strong>Tidigare studier</strong>: ${item["Tidigare studier"] || ''}</div>
+                  <div><strong>Ansökte den</strong>: ${item["field1"] || ''}</div>
                 </details>
               </li>
             `;

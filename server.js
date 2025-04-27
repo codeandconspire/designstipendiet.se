@@ -22,21 +22,42 @@ app.use(
     compose([
       body({ includeUnparsed: true }),
       async function (ctx, next) {
-        await fetch(ENDPOINT, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          },
-          body: ctx.request.body[unparsed]
-        })
+        try {
+          if (!ctx.request.body || !ctx.request.body[unparsed]) {
+            ctx.status = 400;
+            ctx.body = { error: 'Invalid form data' };
+            return;
+          }
 
-        var fields = ctx.request.body.entry
+          const response = await fetch(ENDPOINT, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: ctx.request.body[unparsed]
+          });
 
-        if (ctx.accepts('html')) {
-          ctx.redirect('/tack?contact=' + fields['1183121357'])
-        } else {
-          ctx.type = 'application/json'
-          ctx.body = {}
+          if (!response.ok) {
+            throw new Error(`Google Forms API returned ${response.status}`);
+          }
+
+          var fields = ctx.request.body.entry || {};
+          var contact = fields['1183121357'] || '';
+
+          if (ctx.accepts('html')) {
+            ctx.redirect('/tack?contact=' + encodeURIComponent(contact));
+          } else {
+            ctx.type = 'application/json';
+            ctx.body = { success: true };
+          }
+        } catch (err) {
+          console.error('Form submission error:', err);
+          ctx.status = 500;
+          if (ctx.accepts('html')) {
+            ctx.redirect('/error');
+          } else {
+            ctx.body = { error: 'Form submission failed' };
+          }
         }
       }
     ])

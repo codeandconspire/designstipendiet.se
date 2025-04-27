@@ -176,10 +176,17 @@ module.exports = class Age extends Component {
     function onchange (event) {
       var target = event.target
       var value = +target.value
+      if (isNaN(value)) return
+
       if (event.target.name === MONTH) {
         self.local[target.dataset.name] = value - 1
-        var max = getDaysInMonth(new Date(self.local.year, +target.value))
-        if (self.local.day > max) self.local.day = null
+        try {
+          var max = getDaysInMonth(new Date(self.local.year, +target.value))
+          if (self.local.day > max) self.local.day = null
+        } catch (e) {
+          console.error('Error calculating days in month:', e)
+          self.local.day = null
+        }
       } else {
         self.local[target.dataset.name] = value
       }
