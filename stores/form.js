@@ -16,20 +16,16 @@ function form (state, emitter, app) {
 
   function init () {
     try {
-      if (typeof window !== 'undefined') {  
-        var persisted = window.localStorage.getItem(STORAGE_ID)
-        if (persisted) {
-          try {
-            persisted = JSON.parse(persisted)
-            // Validate that persisted is an object
-            if (!persisted || typeof persisted !== 'object') {
-              persisted = {}
-            }
-          } catch (e) {
-            console.error('Failed to parse localStorage data:', e)
+      var persisted = window.localStorage.getItem(STORAGE_ID)
+      if (persisted) {
+        try {
+          persisted = JSON.parse(persisted)
+          // Validate that persisted is an object
+          if (!persisted || typeof persisted !== 'object') {
             persisted = {}
           }
-        } else {
+        } catch (e) {
+          console.error('Failed to parse localStorage data:', e)
           persisted = {}
         }
       } else {
@@ -49,7 +45,7 @@ function form (state, emitter, app) {
         return obj
       }, {})
 
-    var step = +state.query.q
+    var step = state.query ? +state.query.q : 0
     state.step = isNaN(step) ? 0 : step
     state.next = null
     state.error = null
@@ -76,7 +72,9 @@ function form (state, emitter, app) {
       delete state.answers[name]
     }
     try {
-      window.localStorage.setItem(STORAGE_ID, JSON.stringify(state.answers || {}))
+      if (typeof window !== 'undefined') {
+        window.localStorage.setItem(STORAGE_ID, JSON.stringify(state.answers || {}))
+      }
     } catch (e) {
       console.error('Failed to save to localStorage:', e)
     }
