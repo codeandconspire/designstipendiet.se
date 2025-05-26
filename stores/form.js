@@ -15,25 +15,27 @@ function form (state, emitter, app) {
   }
 
   function init () {
-    try {
-      var persisted = window.localStorage.getItem(STORAGE_ID)
-      if (persisted) {
-        try {
-          persisted = JSON.parse(persisted)
-          // Validate that persisted is an object
-          if (!persisted || typeof persisted !== 'object') {
+    let persisted = {}
+    
+    if (typeof window !== 'undefined') {
+      try {
+        var stored = window.localStorage.getItem(STORAGE_ID)
+        if (stored) {
+          try {
+            persisted = JSON.parse(stored)
+            // Validate that persisted is an object
+            if (!persisted || typeof persisted !== 'object') {
+              persisted = {}
+            }
+          } catch (e) {
+            console.error('Failed to parse localStorage data:', e)
             persisted = {}
           }
-        } catch (e) {
-          console.error('Failed to parse localStorage data:', e)
-          persisted = {}
         }
-      } else {
+      } catch (e) {
+        console.error('Failed to access localStorage:', e)
         persisted = {}
       }
-    } catch (e) {
-      console.error('Failed to access localStorage:', e)
-      persisted = {}
     }
 
     var queried = Object.keys(state.query || {})

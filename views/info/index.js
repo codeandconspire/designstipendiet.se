@@ -5,7 +5,7 @@ var text = i18n();
 
 module.exports = home;
 
-const DEADLINE = new Date("2025-06-02");
+const DEADLINE = new Date("2025-06-15");
 
 function home(state, emit) {
   emit("meta", {
@@ -67,7 +67,7 @@ function home(state, emit) {
                   </li>
                 </ol>
                 <div class="Info-footer">
-                  Sista ansökningsdag 1 juni 2025 och besked om stipendiet ges
+                  Sista ansökningsdag 15 juni 2025 och besked om stipendiet ges
                   kort där efter.
                 </div>
               `
