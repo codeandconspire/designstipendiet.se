@@ -7,6 +7,7 @@ var compose = require('koa-compose')
 var { get, post } = require('koa-route')
 var unparsed = require('koa-body/unparsed')
 var purge = require('./lib/purge')
+var email = require('./lib/email')
 
 var ENDPOINT =
   'https://docs.google.com/forms/d/e/1FAIpQLSdM-T0zn8tIhIy4s4O9D61mGqaezMUvg2Io-dwkWLQe9dKvbg/formResponse'
@@ -21,13 +22,16 @@ app.use(
     '/ansok',
     compose([
       body({ includeUnparsed: true }),
-      async function (ctx, next) {
+      async function (ctx
+      ) {
         try {
           if (!ctx.request.body || !ctx.request.body[unparsed]) {
             ctx.status = 400;
             ctx.body = { error: 'Invalid form data' };
             return;
           }
+
+          console.log('Form data being sent to Google Forms:', ctx.request.body[unparsed]);
 
           const response = await fetch(ENDPOINT, {
             method: 'POST',
@@ -43,6 +47,13 @@ app.use(
 
           var fields = ctx.request.body.entry || {};
           var contact = fields['1183121357'] || '';
+
+          if (contact) {
+            await email(contact).catch(console.error)
+            
+          }
+
+          console.log('Email sent to:', contact);
 
           if (ctx.accepts('html')) {
             ctx.redirect('/tack?contact=' + encodeURIComponent(contact));

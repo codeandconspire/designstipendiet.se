@@ -55,3 +55,11 @@
 .Results summary + div {
   margin-top: 1rem;
 }
+
+.Results .order {
+  font-weight: bold;
+  background: #f2f2f2;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  margin-right: 0.5rem;
+}

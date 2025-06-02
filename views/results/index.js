@@ -86,11 +86,11 @@ function results(state, emit) {
       <div>
         <h1>2025</h1>
         <ul>
-          ${submissions2025.slice().reverse().map(function (item) {
+          ${submissions2025.slice().reverse().map(function (item, index) {
             if (!item) return '';
             return html`
               <li>
-                <span class="title"><strong>${item["Namn"] || ''}</strong>, ${getAge(item["Födelsedag"] || '')}, ${item["field19"] || ''}</span>
+                <span class="title"><span class="order">${index + 1}</span> <strong>${item["Namn"] || ''}</strong>, ${getAge(item["Födelsedag"] || '')}, ${item["field19"] || ''}</span>
                 <div><strong>Ekonomisk förutsättning</strong>: ${item["Ekonomsik förutsättning"] || ''}</div>
                 <div><strong>Kurs</strong>: ${item["Kurs"] || ''}</div>
                 <div><strong>Bidrar med perspektiv</strong>:<br> ${item["Motivering"] || ''}</div>
