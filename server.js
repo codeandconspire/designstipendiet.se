@@ -31,8 +31,6 @@ app.use(
             return;
           }
 
-          console.log('Form data being sent to Google Forms:', ctx.request.body[unparsed]);
-
           const response = await fetch(ENDPOINT, {
             method: 'POST',
             headers: {
@@ -50,10 +48,7 @@ app.use(
 
           if (contact) {
             await email(contact).catch(console.error)
-            
           }
-
-          console.log('Email sent to:', contact);
 
           if (ctx.accepts('html')) {
             ctx.redirect('/tack?contact=' + encodeURIComponent(contact));
