@@ -43,7 +43,14 @@ app.use(
             throw new Error(`Google Forms API returned ${response.status}`);
           }
 
-          var fields = ctx.request.body.entry || {};
+          // Ensure we have valid form data
+          if (!ctx.request.body || !ctx.request.body.entry) {
+            ctx.status = 400;
+            ctx.body = { error: 'Invalid form data: missing entry field' };
+            return;
+          }
+
+          var fields = ctx.request.body.entry;
           var contact = fields['1183121357'] || '';
 
           if (contact) {
