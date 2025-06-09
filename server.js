@@ -43,22 +43,16 @@ app.use(
             throw new Error(`Google Forms API returned ${response.status}`);
           }
 
-          // Ensure we have valid form data
-          if (!ctx.request.body || !ctx.request.body.entry) {
-            ctx.status = 400;
-            ctx.body = { error: 'Invalid form data: missing entry field' };
-            return;
+          if (ctx.request.body.entry) {
+            var fields = ctx.request.body.entry;
+            if (fields && fields['1183121357']) {
+              await email(fields['1183121357']).catch(console.error)
+            }
           }
 
-          var fields = ctx.request.body.entry;
-          var contact = fields['1183121357'] || '';
-
-          if (contact) {
-            await email(contact).catch(console.error)
-          }
 
           if (ctx.accepts('html')) {
-            ctx.redirect('/tack?contact=' + encodeURIComponent(contact));
+            ctx.redirect('/tack');
           } else {
             ctx.type = 'application/json';
             ctx.body = { success: true };
